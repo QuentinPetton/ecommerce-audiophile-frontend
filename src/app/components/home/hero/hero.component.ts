@@ -7,22 +7,23 @@ import type { ProductItems } from '../../../models/product-items';
   selector: 'app-hero',
   imports: [],
   template: `
-    <section>
-      <div class="text-center text-white z-20 font-manrope">
-        <div
-          class="bg-[url('/assets/home/mobile/image-header.jpg')] bg-contain bg-no-repeat h-screen"
+    <section class="text-center text-white font-manrope">
+      <div
+        class="bg-[url('/assets/home/mobile/image-header.jpg')] bg-cover bg-no-repeat bg-center h-[600px] flex flex-col justify-center items-center px-6"
+      >
+        <span class="tracking-[0.5rem] text-sm opacity-40 mt-16 mb-2">NEW PRODUCT</span>
+        <h1 class="font-bold text-4xl">XX99 MARK II HEADPHONES</h1>
+        <p class="opacity-75 text-sm/6 mx-4 my-6">
+          Experience natural, lifelike audio and exceptional build quality made for the passionate
+          music enthusiast.
+        </p>
+        <button
+          class="bg-[#D87D4A] px-6 py-3 text-sm tracking-widest hover:bg-[#FBAF85] transition cursor-pointer"
         >
-          <span>NEW PRODUCT</span>
-          <h1>XX99 MARK II HEADPHONES</h1>
-          <p>
-            Experience natural, lifelike audio and exceptional build quality made for the passionate
-            music enthusiast.
-          </p>
-          <button class="bg-[#D87D4A] p-3">SEE PRODUCT</button>
-        </div>
+          SEE PRODUCT
+        </button>
       </div>
     </section>
-    s
 
     <p>hero works!</p>
 
