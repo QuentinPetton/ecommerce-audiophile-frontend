@@ -8,7 +8,7 @@ import type { ProductItems } from '../../../models/product-items';
   imports: [],
   template: `
     <section>
-      <div class="text-center text-white z-20">
+      <div class="text-center text-white z-20 font-manrope">
         <div
           class="bg-[url('/assets/home/mobile/image-header.jpg')] bg-contain bg-no-repeat h-screen"
         >
