@@ -2,17 +2,20 @@ import { ProductService } from './../../../services/product.service';
 import { Component, inject } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import type { ProductItems } from '../../../models/product-items';
+import { UpperCasePipe } from '@angular/common';
 
 @Component({
   selector: 'app-hero',
-  imports: [],
+  imports: [UpperCasePipe],
   template: `
     <section class="text-center text-white font-manrope">
       <div
         class="bg-[url('/assets/home/mobile/image-header.jpg')] bg-cover bg-no-repeat bg-center h-[600px] flex flex-col justify-center items-center px-6"
       >
-        <span class="tracking-[0.5rem] text-sm opacity-40 mt-16 mb-2">NEW PRODUCT</span>
-        <h1 class="font-bold text-4xl">XX99 MARK II HEADPHONES</h1>
+        <span class="tracking-[0.5rem] text-sm opacity-40 mt-16 mb-2">{{
+          'new product' | uppercase
+        }}</span>
+        <h1 class="font-bold text-4xl">{{ 'XX99 MARK II HEADPHONES' | uppercase }}</h1>
         <p class="opacity-75 text-sm/6 mx-4 my-6">
           Experience natural, lifelike audio and exceptional build quality made for the passionate
           music enthusiast.
@@ -20,7 +23,7 @@ import type { ProductItems } from '../../../models/product-items';
         <button
           class="bg-[#D87D4A] px-6 py-3 text-sm tracking-widest hover:bg-[#FBAF85] transition cursor-pointer"
         >
-          SEE PRODUCT
+          {{ 'see product' | uppercase }}
         </button>
       </div>
     </section>
