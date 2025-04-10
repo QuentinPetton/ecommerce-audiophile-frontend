@@ -7,6 +7,23 @@ import type { ProductItems } from '../../../models/product-items';
   selector: 'app-hero',
   imports: [],
   template: `
+    <section>
+      <div class="text-center text-white z-20">
+        <div
+          class="bg-[url('/assets/home/mobile/image-header.jpg')] bg-contain bg-no-repeat h-screen"
+        >
+          <span>NEW PRODUCT</span>
+          <h1>XX99 MARK II HEADPHONES</h1>
+          <p>
+            Experience natural, lifelike audio and exceptional build quality made for the passionate
+            music enthusiast.
+          </p>
+          <button class="bg-[#D87D4A] p-3">SEE PRODUCT</button>
+        </div>
+      </div>
+    </section>
+    s
+
     <p>hero works!</p>
 
     <div>
