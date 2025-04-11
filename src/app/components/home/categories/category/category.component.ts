@@ -1,6 +1,5 @@
 import { Component, input } from '@angular/core';
 import type { Category } from '../../../../models/category';
-import { JsonPipe } from '@angular/common';
 import { UpperCasePipe } from '@angular/common';
 
 @Component({
@@ -8,7 +7,7 @@ import { UpperCasePipe } from '@angular/common';
   imports: [UpperCasePipe],
   template: `
     <div>
-      <img src="{{ category()?.thumbnail }}" alt="" />
+      <img src="{{ category()?.thumbnail }}" alt="thunbnail of {{ category()?.slug }}" />
       <h2>{{ category()?.slug | uppercase }}</h2>
       <button>
         {{ 'Shop' | uppercase }}
