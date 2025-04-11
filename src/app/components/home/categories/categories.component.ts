@@ -2,15 +2,16 @@ import { Component, inject } from '@angular/core';
 import { CategoryService } from '../../../services/category.service';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { CategoryComponent } from './category/category.component';
-import { Category } from '../../../models/category';
 
 @Component({
   selector: 'app-categories',
   imports: [CategoryComponent],
   template: `
-    @for (category of categories(); track $index) {
-      <app-category [category]="category"></app-category>
-    }
+    <section>
+      @for (category of categories(); track $index) {
+        <app-category [category]="category"></app-category>
+      }
+    </section>
   `,
   styles: '',
 })
