@@ -1,2 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --color-orange: #d87d4a;
+  --color-orange-light: #fbaf85;
+  --color-grey-light: #f1f1f1;
+  --font-manrope: 'Manrope', sans-serif;
+}
