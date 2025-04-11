@@ -1,15 +1,18 @@
 import type { ProductIncludes } from './product-includes';
 import type { ProductImages } from './product-images';
+import type { Category } from './category';
+import type { ProductOthers } from './product-others';
 
 export interface ProductItems {
   id: number;
   slug: string;
   name: string;
-  category: string;
-  isNew: boolean;
+  category: Category;
+  new: boolean;
   price: number;
   description: string;
   features: string;
   productImages: ProductImages[];
-  includes: ProductIncludes[];
+  productIncludes: ProductIncludes[];
+  others: ProductOthers[];
 }
