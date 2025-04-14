@@ -40,7 +40,7 @@ import { SplitBeforeCategoryPipe } from '../../../pipes/split-before-category.pi
           class="rounded-lg  "
         />
         <div class="absolute top-1/3 mx-8">
-          <h3 class="font-semibold text-2xl pb-6">
+          <h3 class="font-semibold text-2xl pb-8">
             {{ featuredSpeakerSecondaryProduct()?.name | uppercase }}
           </h3>
           <button class="border border-black py-3 px-6 text-sm cursor-pointer">
@@ -48,10 +48,20 @@ import { SplitBeforeCategoryPipe } from '../../../pipes/split-before-category.pi
           </button>
         </div>
       </div>
-      <div>
-        <h3>
-          {{ featuredEarphoneProduct()?.name | uppercase }}
-        </h3>
+      <div class="mx-8">
+        <img
+          class="rounded-lg"
+          [src]="'/assets/home/desktop/image-' + featuredEarphoneProduct()?.slug + '.jpg'"
+          alt="image of {{ featuredEarphoneProduct()?.slug }}"
+        />
+        <div class="bg-grey-light mt-4 py-12 px-8 rounded-lg">
+          <h3 class="font-semibold text-2xl pb-6">
+            {{ featuredEarphoneProduct()?.name | uppercase }}
+          </h3>
+          <button class="border border-black py-3 px-6 text-sm cursor-pointer">
+            {{ 'see product' | uppercase }}
+          </button>
+        </div>
       </div>
     </section>
   `,
