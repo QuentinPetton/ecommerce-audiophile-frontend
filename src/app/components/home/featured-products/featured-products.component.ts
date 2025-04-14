@@ -24,7 +24,7 @@ import { SplitBeforeCategoryPipe } from '../../../pipes/split-before-category.pi
           alt="'image of {{ featuredSpeakerPrimaryProduct()?.slug }}"
         />
         <h3 class="text-3xl whitespace-pre-line pt-6 font-semibold">
-          {{ featuredSpeakerPrimaryProduct()?.name | splitBeforeCategory | uppercase }}
+          {{ featuredSpeakerPrimaryProduct()?.slug | splitBeforeCategory | uppercase }}
         </h3>
         <p class="my-6 opacity-75">
           Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.
@@ -40,18 +40,28 @@ import { SplitBeforeCategoryPipe } from '../../../pipes/split-before-category.pi
           class="rounded-lg  "
         />
         <div class="absolute top-1/3 mx-8">
-          <h3 class="font-semibold text-2xl pb-6">
-            {{ featuredSpeakerSecondaryProduct()?.name | uppercase }}
+          <h3 class="font-semibold text-2xl pb-8">
+            {{ featuredSpeakerSecondaryProduct()?.slug | uppercase }}
           </h3>
           <button class="border border-black py-3 px-6 text-sm cursor-pointer">
             {{ 'see product' | uppercase }}
           </button>
         </div>
       </div>
-      <div>
-        <h3>
-          {{ featuredEarphoneProduct()?.name | uppercase }}
-        </h3>
+      <div class="mx-8">
+        <img
+          class="rounded-lg"
+          [src]="'/assets/home/desktop/image-' + featuredEarphoneProduct()?.slug + '.jpg'"
+          alt="image of {{ featuredEarphoneProduct()?.slug }}"
+        />
+        <div class="bg-grey-light mt-4 py-12 px-8 rounded-lg">
+          <h3 class="font-semibold text-2xl pb-6">
+            {{ featuredEarphoneProduct()?.slug | uppercase }}
+          </h3>
+          <button class="border border-black py-3 px-6 text-sm cursor-pointer">
+            {{ 'see product' | uppercase }}
+          </button>
+        </div>
       </div>
     </section>
   `,
