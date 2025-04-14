@@ -41,7 +41,9 @@ import { SplitBeforeCategoryPipe } from '../../../pipes/split-before-category.pi
         />
         <div class="absolute top-1/3 mx-8">
           <h3 class="font-semibold text-2xl pb-8">
-            {{ featuredSpeakerSecondaryProduct()?.slug | uppercase }}
+
+            {{ featuredSpeakerSecondaryProduct()?.name | uppercase }}
+
           </h3>
           <button class="border border-black py-3 px-6 text-sm cursor-pointer">
             {{ 'see product' | uppercase }}
@@ -56,7 +58,9 @@ import { SplitBeforeCategoryPipe } from '../../../pipes/split-before-category.pi
         />
         <div class="bg-grey-light mt-4 py-12 px-8 rounded-lg">
           <h3 class="font-semibold text-2xl pb-6">
-            {{ featuredEarphoneProduct()?.slug | uppercase }}
+
+            {{ featuredEarphoneProduct()?.name | uppercase }}
+
           </h3>
           <button class="border border-black py-3 px-6 text-sm cursor-pointer">
             {{ 'see product' | uppercase }}
