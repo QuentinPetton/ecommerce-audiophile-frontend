@@ -2,21 +2,37 @@ import { Component, inject } from '@angular/core';
 import { ProductService } from '../../../services/product.service';
 import { ProductItems } from '../../../models/product-items';
 import { toSignal } from '@angular/core/rxjs-interop';
+import { UpperCasePipe } from '@angular/common';
 
 @Component({
   selector: 'app-featured-products',
-  imports: [],
+  imports: [UpperCasePipe],
   template: `
-    <p>
-      {{ featuredSpeakerPrimaryProduct()?.name }}
-    </p>
-    <p>
-      {{ featuredSpeakerSecondaryProduct()?.name }}
-    </p>
-    <p>
-      {{ featuredEarphoneProduct()?.name }}
-    </p>
-    <p>featured-products works!</p>
+    <section>
+      <div>
+        <img
+          [src]="'/assets/home/desktop/image-' + featuredSpeakerPrimaryProduct()?.slug + '.png'"
+          alt="'image of {{ featuredSpeakerPrimaryProduct()?.slug }}"
+        />
+        <h3>
+          {{ featuredSpeakerPrimaryProduct()?.name | uppercase }}
+        </h3>
+        <p>
+          {{ featuredSpeakerPrimaryProduct()?.description }}
+        </p>
+        <button>See product</button>
+      </div>
+      <div>
+        <h3>
+          {{ featuredSpeakerSecondaryProduct()?.name | uppercase }}
+        </h3>
+      </div>
+      <div>
+        <h3>
+          {{ featuredEarphoneProduct()?.name | uppercase }}
+        </h3>
+      </div>
+    </section>
   `,
   styles: '',
 })
