@@ -9,8 +9,10 @@ import { SplitBeforeCategoryPipe } from '../../../pipes/split-before-category.pi
   selector: 'app-featured-products',
   imports: [UpperCasePipe, SplitBeforeCategoryPipe],
   template: `
-    <section class="overflow-hidden mt-20 text-white text-center">
-      <div class="bg-orange relative flex flex-col items-center mx-8 rounded-lg pb-12">
+    <section class="overflow-hidden mt-20 ">
+      <div
+        class="bg-orange text-white text-center relative flex flex-col items-center mx-8 rounded-lg pb-12"
+      >
         <img
           class="absolute top-[-22%] left-1/2 -translate-x-1/2 w-[530px] max-w-none"
           src="/assets/home/desktop/pattern-circles.svg"
@@ -31,10 +33,20 @@ import { SplitBeforeCategoryPipe } from '../../../pipes/split-before-category.pi
           {{ 'see product' | uppercase }}
         </button>
       </div>
-      <div>
-        <h3>
-          {{ featuredSpeakerSecondaryProduct()?.name | uppercase }}
-        </h3>
+      <div class="relative mx-8 py-4 ">
+        <img
+          [src]="'/assets/home/mobile/image-' + featuredSpeakerSecondaryProduct()?.slug + '.jpg'"
+          alt="'image of {{ featuredSpeakerSecondaryProduct()?.slug }}"
+          class="rounded-lg  "
+        />
+        <div class="absolute top-1/3 mx-8">
+          <h3 class="font-semibold text-2xl pb-6">
+            {{ featuredSpeakerSecondaryProduct()?.name | uppercase }}
+          </h3>
+          <button class="border border-black py-3 px-6 text-sm cursor-pointer">
+            {{ 'see product' | uppercase }}
+          </button>
+        </div>
       </div>
       <div>
         <h3>
@@ -46,6 +58,7 @@ import { SplitBeforeCategoryPipe } from '../../../pipes/split-before-category.pi
   styles: '',
 })
 export class FeaturedProductsComponent {
+  //todo add control flow
   private readonly productService = inject(ProductService);
 
   readonly featuredSpeakerPrimaryProduct = toSignal(
