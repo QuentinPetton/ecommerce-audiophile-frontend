@@ -1,21 +1,22 @@
 import { Component, signal } from '@angular/core';
+import { CategoriesComponent } from '../../../home/categories/categories.component';
+import { NavbarComponent } from './navbar.component';
 
 @Component({
   selector: 'app-menu',
-  imports: [],
+  imports: [CategoriesComponent, NavbarComponent],
   template: `
     @if (!burgerMenuIsOpen()) {
-      <nav
-        class="absolute flex justify-between px-8 w-full items-center py-4 border-b border-grey-light/30"
-      >
-        <button (click)="toggleBurgerMenu()" class="cursor-pointer">
-          <img src="/assets/shared/tablet/icon-hamburger.svg" alt="burger menu icon" />
-        </button>
-        <img src="/assets/shared/desktop/logo.svg" alt="logo audiophile" />
-        <img src="/assets/shared/desktop/icon-cart.svg" alt="cart icon" />
-      </nav>
+      <app-navbar
+        [burgerMenuIsOpen]="burgerMenuIsOpen()"
+        (toggleBurgerMenu)="toggleBurgerMenu()"
+      ></app-navbar>
     } @else {
-      <p>test</p>
+      <app-categories></app-categories>
+      <app-navbar
+        [burgerMenuIsOpen]="burgerMenuIsOpen()"
+        (toggleBurgerMenu)="toggleBurgerMenu()"
+      ></app-navbar>
     }
   `,
   styles: '',
