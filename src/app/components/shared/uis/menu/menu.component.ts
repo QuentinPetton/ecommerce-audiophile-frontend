@@ -12,7 +12,7 @@ import { NavbarComponent } from './navbar.component';
         (toggleBurgerMenu)="toggleBurgerMenu()"
       ></app-navbar>
     } @else {
-      <div class="fixed inset-0 z-10 bg-black/50"></div>
+      <div (click)="toggleBurgerMenu()" class="fixed inset-0 z-10 bg-black/50"></div>
       <div class="absolute top-0 left-0 w-full flex flex-col z-40">
         <app-navbar
           [burgerMenuIsOpen]="burgerMenuIsOpen()"
