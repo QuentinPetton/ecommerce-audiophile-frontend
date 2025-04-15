@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
-  selector: 'app-navbar',
+  selector: 'app-burgerMenu',
   imports: [],
   template: ` <nav
     class="absolute flex justify-between px-8 w-full items-center py-4 border-b border-grey-light/30"
@@ -14,7 +14,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   </nav>`,
   styles: '',
 })
-export class NavbarComponent {
+export class BurgerMenuComponent {
   @Input() burgerMenuIsOpen = false;
   @Output() toggleBurgerMenu = new EventEmitter();
 }
