@@ -5,18 +5,19 @@ import { UpperCasePipe } from '@angular/common';
   selector: 'app-about',
   imports: [UpperCasePipe],
   template: `
-    <section>
+    <section class="mx-8 text-center my-28">
       <img
         src="/assets/shared/desktop/image-best-gear.jpg"
         alt="man listening music with headphones"
-        class="rounded-lg mx-8"
+        class="rounded-lg"
       />
 
-      <h4>
-        {{ 'Bringing you the' | uppercase }} <span>{{ 'best' | uppercase }}</span>
+      <h4 class="text-2xl font-semibold my-6 mx-4">
+        {{ 'Bringing you the' | uppercase }}
+        <span class="text-orange">{{ 'best' | uppercase }}</span>
         {{ 'audio gear' | uppercase }}
       </h4>
-      <p>
+      <p class="opacity-50 text-sm">
         Located at the heart of New York City, Audiophile is the premier store for high end
         headphones, earphones, speakers, and audio accessories. We have a large showroom and luxury
         demonstration rooms available for you to browse and experience a wide range of our products.
