@@ -8,10 +8,12 @@ import { UpperCasePipe } from '@angular/common';
   imports: [UpperCasePipe],
   template: `
     <nav>
-      <ul>
-        <li>{{ 'Home' | uppercase }}</li>
+      <ul class="text-xs">
+        <li class="pb-4 cursor-pointer hover:text-orange-light">{{ 'Home' | uppercase }}</li>
         @for (category of categories(); track $index) {
-          <li>{{ category.slug | uppercase }}</li>
+          <li class="pb-4 cursor-pointer hover:text-orange-light">
+            {{ category.slug | uppercase }}
+          </li>
         }
       </ul>
     </nav>

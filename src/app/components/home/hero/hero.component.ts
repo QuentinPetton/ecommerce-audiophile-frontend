@@ -24,7 +24,7 @@ import type { ProductItems } from '../../../models/product-items';
           music enthusiast.
         </p>
         <button
-          class="bg-[#D87D4A] px-6 py-3 text-sm tracking-widest hover:bg-[#FBAF85] transition cursor-pointer"
+          class="bg-[#D87D4A] px-6 py-3 text-sm tracking-widest hover:bg-orange-light transition cursor-pointer"
         >
           {{ 'see product' | uppercase }}
         </button>
