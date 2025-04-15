@@ -1,0 +1,22 @@
+import { type ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { BurgerMenuComponent } from './burgerMenu.component';
+
+describe('NavbarComponent', () => {
+  let component: BurgerMenuComponent;
+  let fixture: ComponentFixture<BurgerMenuComponent>;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [BurgerMenuComponent],
+    }).compileComponents();
+
+    fixture = TestBed.createComponent(BurgerMenuComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});
