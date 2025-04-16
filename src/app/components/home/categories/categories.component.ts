@@ -7,7 +7,7 @@ import { CategoryComponent } from './category/category.component';
   selector: 'app-categories',
   imports: [CategoryComponent],
   template: `
-    <section>
+    <section class="md:grid md:grid-cols-3">
       @for (category of categories(); track $index) {
         <app-category [category]="category"></app-category>
       }
