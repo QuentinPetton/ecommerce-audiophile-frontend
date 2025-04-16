@@ -33,7 +33,7 @@ import { SplitBeforeCategoryPipe } from '../../../pipes/split-before-category.pi
               media="(min-width: 768px)"
             />
             <img
-              [src]="'/assets/home/desktop/image-' + featuredSpeakerPrimaryProduct()?.slug + '.png'"
+              [src]="'/assets/home/mobile/image-' + featuredSpeakerPrimaryProduct()?.slug + '.png'"
               alt="'image of {{ featuredSpeakerPrimaryProduct()?.slug }}"
             />
           </picture>
@@ -51,11 +51,26 @@ import { SplitBeforeCategoryPipe } from '../../../pipes/split-before-category.pi
       }
       @if (featuredSpeakerSecondaryProduct()) {
         <div class="relative mx-8 py-4 ">
-          <img
-            [src]="'/assets/home/mobile/image-' + featuredSpeakerSecondaryProduct()?.slug + '.jpg'"
-            alt="'image of {{ featuredSpeakerSecondaryProduct()?.slug }}"
-            class="rounded-lg  "
-          />
+          <picture class="rounded-lg  ">
+            <source
+              [attr.srcset]="
+                '/assets/home/desktop/image-' + featuredSpeakerSecondaryProduct()?.slug + '.jpg'
+              "
+              media="(min-width: 1024px)"
+            />
+            <source
+              [attr.srcset]="
+                '/assets/home/tablet/image-' + featuredSpeakerSecondaryProduct()?.slug + '.jpg'
+              "
+              media="(min-width: 768px)"
+            />
+            <img
+              [src]="
+                '/assets/home/mobile/image-' + featuredSpeakerSecondaryProduct()?.slug + '.jpg'
+              "
+              alt="'image of {{ featuredSpeakerSecondaryProduct()?.slug }}"
+            />
+          </picture>
           <div class="absolute top-1/3 mx-8">
             <h3 class="font-semibold text-2xl pb-8">
               {{ featuredSpeakerSecondaryProduct()?.name | uppercase }}
