@@ -3,23 +3,29 @@ import { Component, inject } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { UpperCasePipe } from '@angular/common';
 import type { ProductItems } from '../../../models/product-items';
+import { SplitBeforeCategoryPipe } from '../../../pipes/split-before-category.pipe';
 
 @Component({
   selector: 'app-hero',
-  imports: [UpperCasePipe],
+  imports: [UpperCasePipe, SplitBeforeCategoryPipe],
   template: `
-    <section class="text-center text-white font-manrope">
+    <section class="text-center text-white font-manrope lg:text-left">
       <div
-        class="bg-[url('/assets/home/mobile/image-header.jpg')] bg-cover bg-no-repeat bg-center h-[600px] flex flex-col justify-center items-center px-6"
+        class="bg-[url('/assets/home/mobile/image-header.jpg')] bg-cover bg-no-repeat bg-center h-[600px] flex flex-col justify-center items-center px-6
+        md:bg-[url('/assets/home/tablet/image-header.jpg')] md:h-[729px]
+        lg:bg-[url('/assets/home/desktop/image-hero.jpg')] lg:items-start lg:pl-22
+        "
       >
         @if (product()?.new === true) {
           <span class="tracking-[0.5rem] text-sm opacity-40 mt-16 mb-2">{{
             'new product' | uppercase
           }}</span>
         }
-        <h1 class="font-bold text-4xl">{{ product()?.name | uppercase }}</h1>
+        <h1 class="font-bold text-4xl whitespace-pre-line md:text-6xl">
+          {{ product()?.name | splitBeforeCategory | uppercase }}
+        </h1>
 
-        <p class="opacity-75 text-sm/6 mx-4 my-6">
+        <p class="opacity-75 text-sm/6 mx-4 my-6 md:mx-48 lg:mx-0 lg:max-w-xs">
           Experience natural, lifelike audio and exceptional build quality made for the passionate
           music enthusiast.
         </p>
