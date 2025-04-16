@@ -74,8 +74,8 @@ import { SplitBeforeCategoryPipe } from '../../../pipes/split-before-category.pi
               class="rounded-lg"
             />
           </picture>
-          <div class="absolute top-1/3 mx-8">
-            <h3 class="font-semibold text-2xl pb-8">
+          <div class="absolute top-1/3 mx-8 md:mx-16">
+            <h3 class="font-semibold text-2xl pb-8 md:text-3xl">
               {{ featuredSpeakerSecondaryProduct()?.name | uppercase }}
             </h3>
             <button
@@ -87,7 +87,7 @@ import { SplitBeforeCategoryPipe } from '../../../pipes/split-before-category.pi
         </div>
       }
       @if (featuredEarphoneProduct()) {
-        <div class="mx-8">
+        <div class="mx-8 md:grid md:grid-cols-2 md:gap-2">
           <picture>
             <source
               [attr.srcset]="
@@ -109,7 +109,7 @@ import { SplitBeforeCategoryPipe } from '../../../pipes/split-before-category.pi
               class="rounded-lg"
             />
           </picture>
-          <div class="bg-grey-light mt-4 py-12 px-8 rounded-lg">
+          <div class="bg-grey-light mt-4 py-12 px-8 rounded-lg md:mt-0 md:pt-20 ">
             <h3 class="font-semibold text-2xl pb-6">
               {{ featuredEarphoneProduct()?.name | uppercase }}
             </h3>
