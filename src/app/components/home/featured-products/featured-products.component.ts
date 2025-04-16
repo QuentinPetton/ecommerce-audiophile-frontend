@@ -12,14 +12,14 @@ import { SplitBeforeCategoryPipe } from '../../../pipes/split-before-category.pi
     <section class="overflow-hidden mt-20 ">
       @if (featuredSpeakerPrimaryProduct()) {
         <div
-          class="bg-orange text-white text-center relative flex flex-col items-center mx-8 rounded-lg pb-12"
+          class="bg-orange text-white text-center relative flex flex-col items-center mx-8 rounded-lg pb-12 lg:flex-row lg:pb-0 lg:text-left lg:justify-evenly lg:pt-10 overflow-hidden"
         >
           <img
-            class="absolute top-[-22%] left-1/2 -translate-x-1/2 w-[530px] max-w-none md:w-[780px] md:top-[-40%]"
+            class="absolute top-[-22%] left-1/2 -translate-x-1/2 w-[530px] max-w-none md:w-[780px] md:top-[-40%] lg:left-1/4"
             src="/assets/home/desktop/pattern-circles.svg"
             alt="white pattern circle"
           />
-          <picture class="w-1/2 z-10 relative mt-12 md:w-1/4">
+          <picture class="w-1/2 z-10 relative mt-12 md:w-1/4 lg:mb-[-5px]">
             <source
               [attr.srcset]="
                 '/assets/home/desktop/image-' + featuredSpeakerPrimaryProduct()?.slug + '.png'
@@ -37,16 +37,20 @@ import { SplitBeforeCategoryPipe } from '../../../pipes/split-before-category.pi
               alt="'image of {{ featuredSpeakerPrimaryProduct()?.slug }}"
             />
           </picture>
-          <h3 class="text-3xl whitespace-pre-line pt-6 font-semibold md:text-5xl">
-            {{ featuredSpeakerPrimaryProduct()?.name | splitBeforeCategory | uppercase }}
-          </h3>
-          <p class="my-6 opacity-75 md:mx-42">
-            Upgrade to premium speakers that are phenomenally built to deliver truly remarkable
-            sound.
-          </p>
-          <button class="bg-black py-4 px-8 text-sm cursor-pointer z-10 hover:bg-grey">
-            {{ 'see product' | uppercase }}
-          </button>
+          <div class="z-10 lg:mb-12">
+            <h3 class="text-3xl whitespace-pre-line pt-6 font-semibold md:text-5xl lg:text-4xl">
+              {{ featuredSpeakerPrimaryProduct()?.name | splitBeforeCategory | uppercase }}
+            </h3>
+            <p class="my-6 opacity-75 md:mx-42 lg:mx-0 lg:max-w-xs lg:text-sm">
+              Upgrade to premium speakers that are phenomenally built to deliver truly remarkable
+              sound.
+            </p>
+            <button
+              class="bg-black py-4 px-8 text-sm cursor-pointer hover:bg-grey lg:py-3 lg:px-6 lg:text-xs"
+            >
+              {{ 'see product' | uppercase }}
+            </button>
+          </div>
         </div>
       }
       @if (featuredSpeakerSecondaryProduct()) {
