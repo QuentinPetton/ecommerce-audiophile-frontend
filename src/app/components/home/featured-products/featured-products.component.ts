@@ -51,24 +51,27 @@ import { SplitBeforeCategoryPipe } from '../../../pipes/split-before-category.pi
       }
       @if (featuredSpeakerSecondaryProduct()) {
         <div class="relative mx-8 py-4 ">
-          <picture class="rounded-lg  ">
+          <picture>
             <source
               [attr.srcset]="
                 '/assets/home/desktop/image-' + featuredSpeakerSecondaryProduct()?.slug + '.jpg'
               "
               media="(min-width: 1024px)"
+              class="rounded-lg"
             />
             <source
               [attr.srcset]="
                 '/assets/home/tablet/image-' + featuredSpeakerSecondaryProduct()?.slug + '.jpg'
               "
               media="(min-width: 768px)"
+              class="rounded-lg"
             />
             <img
               [src]="
                 '/assets/home/mobile/image-' + featuredSpeakerSecondaryProduct()?.slug + '.jpg'
               "
               alt="'image of {{ featuredSpeakerSecondaryProduct()?.slug }}"
+              class="rounded-lg"
             />
           </picture>
           <div class="absolute top-1/3 mx-8">
@@ -85,11 +88,27 @@ import { SplitBeforeCategoryPipe } from '../../../pipes/split-before-category.pi
       }
       @if (featuredEarphoneProduct()) {
         <div class="mx-8">
-          <img
-            class="rounded-lg"
-            [src]="'/assets/home/desktop/image-' + featuredEarphoneProduct()?.slug + '.jpg'"
-            alt="image of {{ featuredEarphoneProduct()?.slug }}"
-          />
+          <picture>
+            <source
+              [attr.srcset]="
+                '/assets/home/desktop/image-' + featuredEarphoneProduct()?.slug + '.jpg'
+              "
+              media="(min-width: 1024px)"
+              class="rounded-lg"
+            />
+            <source
+              [attr.srcset]="
+                '/assets/home/tablet/image-' + featuredEarphoneProduct()?.slug + '.jpg'
+              "
+              media="(min-width: 768px)"
+              class="rounded-lg"
+            />
+            <img
+              [src]="'/assets/home/mobile/image-' + featuredEarphoneProduct()?.slug + '.jpg'"
+              alt="'image of {{ featuredEarphoneProduct()?.slug }}"
+              class="rounded-lg"
+            />
+          </picture>
           <div class="bg-grey-light mt-4 py-12 px-8 rounded-lg">
             <h3 class="font-semibold text-2xl pb-6">
               {{ featuredEarphoneProduct()?.name | uppercase }}
