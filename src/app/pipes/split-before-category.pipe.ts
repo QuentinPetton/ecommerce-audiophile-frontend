@@ -5,6 +5,7 @@ import { toSignal } from '@angular/core/rxjs-interop';
 
 @Pipe({
   name: 'splitBeforeCategory',
+  pure: false,
 })
 export class SplitBeforeCategoryPipe implements PipeTransform {
   private categoryService = inject(CategoryService);
@@ -16,12 +17,19 @@ export class SplitBeforeCategoryPipe implements PipeTransform {
     const categories = this.categories() ?? [];
 
     for (const category of categories) {
-      // remove the last 's' from the category name
-      const singular = category.name.replace(/s$/i, '');
-      const regex = new RegExp(`\\b${singular}\\b`, 'i');
+      const name = category.name;
+      const singular = name.replace(/s$/i, '');
 
-      if (regex.test(value)) {
-        return value.replace(regex, `\n${singular}`);
+      // On vérifie d'abord la forme plurielle
+      const pluralRegex = new RegExp(`\\b${name}\\b`, 'i');
+      if (pluralRegex.test(value)) {
+        return value.replace(pluralRegex, `\n${name}`).toUpperCase();
+      }
+
+      // Puis la forme singulière
+      const singularRegex = new RegExp(`\\b${singular}\\b`, 'i');
+      if (singularRegex.test(value)) {
+        return value.replace(singularRegex, `\n${singular}`).toUpperCase();
       }
     }
     return value;
