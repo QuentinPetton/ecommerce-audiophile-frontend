@@ -4,10 +4,11 @@ import { toSignal } from '@angular/core/rxjs-interop';
 import { UpperCasePipe } from '@angular/common';
 import type { ProductItems } from '../../../models/product-items';
 import { SplitBeforeCategoryPipe } from '../../../pipes/split-before-category.pipe';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-hero',
-  imports: [UpperCasePipe, SplitBeforeCategoryPipe],
+  imports: [UpperCasePipe, SplitBeforeCategoryPipe, RouterLink],
   template: `
     <section class="text-center text-white font-manrope lg:text-left">
       <div
@@ -32,7 +33,9 @@ import { SplitBeforeCategoryPipe } from '../../../pipes/split-before-category.pi
         <button
           class="bg-[#D87D4A] px-6 py-3 text-sm tracking-widest hover:bg-orange-light transition cursor-pointer"
         >
-          {{ 'see product' | uppercase }}
+          <a [routerLink]="['/product', product()?.slug]">
+            {{ 'see product' | uppercase }}
+          </a>
         </button>
       </div>
     </section>
