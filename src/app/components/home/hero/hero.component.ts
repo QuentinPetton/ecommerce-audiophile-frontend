@@ -20,11 +20,11 @@ import { SplitBeforeCategoryPipe } from '../../../pipes/split-before-category.pi
             'new product' | uppercase
           }}</span>
         }
-        <h1 class="font-bold text-4xl whitespace-pre-line">
+        <h1 class="font-bold text-4xl whitespace-pre-line md:text-6xl">
           {{ product()?.name | splitBeforeCategory | uppercase }}
         </h1>
 
-        <p class="opacity-75 text-sm/6 mx-4 my-6">
+        <p class="opacity-75 text-sm/6 mx-4 my-6 md:mx-48">
           Experience natural, lifelike audio and exceptional build quality made for the passionate
           music enthusiast.
         </p>
