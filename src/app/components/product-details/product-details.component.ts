@@ -22,7 +22,6 @@ export class ProductDetailsComponent {
   private readonly product = toSignal(
     this.route.paramMap.pipe(
       map((params) => params.get('slug')),
-      filter((slug) => !!slug),
       switchMap((slug) => this.productService.getProductBySlug(slug)),
     ),
   );
