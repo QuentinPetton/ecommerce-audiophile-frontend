@@ -23,7 +23,6 @@ import { UpperCasePipe } from '@angular/common';
           class="rounded-lg"
         />
       </picture>
-
       <h4 class="text-2xl font-semibold my-6 mx-4 md:text-3xl md:mx-32 md:mt-12">
         {{ 'Bringing you the' | uppercase }}
         <span class="text-orange">{{ 'best' | uppercase }}</span>
