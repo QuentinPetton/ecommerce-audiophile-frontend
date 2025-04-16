@@ -9,7 +9,7 @@ import { SplitBeforeCategoryPipe } from '../../../pipes/split-before-category.pi
   selector: 'app-featured-products',
   imports: [UpperCasePipe, SplitBeforeCategoryPipe],
   template: `
-    <section class="overflow-hidden mt-20 ">
+    <section class="overflow-hidden mt-20 lg:mx-12 ">
       @if (featuredSpeakerPrimaryProduct()) {
         <div
           class="bg-orange text-white text-center relative flex flex-col items-center mx-8 rounded-lg pb-12 lg:flex-row lg:pb-0 lg:text-left lg:justify-evenly lg:pt-10 overflow-hidden"
@@ -54,14 +54,14 @@ import { SplitBeforeCategoryPipe } from '../../../pipes/split-before-category.pi
         </div>
       }
       @if (featuredSpeakerSecondaryProduct()) {
-        <div class="relative mx-8 py-4 ">
-          <picture>
+        <div class="relative mx-8 py-4 lg:py-8 ">
+          <picture class="w-full">
             <source
               [attr.srcset]="
                 '/assets/home/desktop/image-' + featuredSpeakerSecondaryProduct()?.slug + '.jpg'
               "
               media="(min-width: 1024px)"
-              class="rounded-lg"
+              class="rounded-lg "
             />
             <source
               [attr.srcset]="
@@ -75,7 +75,7 @@ import { SplitBeforeCategoryPipe } from '../../../pipes/split-before-category.pi
                 '/assets/home/mobile/image-' + featuredSpeakerSecondaryProduct()?.slug + '.jpg'
               "
               alt="'image of {{ featuredSpeakerSecondaryProduct()?.slug }}"
-              class="rounded-lg"
+              class="rounded-lg w-full object-cover"
             />
           </picture>
           <div class="absolute top-1/3 mx-8 md:mx-16">
@@ -91,7 +91,7 @@ import { SplitBeforeCategoryPipe } from '../../../pipes/split-before-category.pi
         </div>
       }
       @if (featuredEarphoneProduct()) {
-        <div class="mx-8 md:grid md:grid-cols-2 md:gap-2">
+        <div class="mx-8 md:grid md:grid-cols-2 md:gap-2 lg:gap-4">
           <picture>
             <source
               [attr.srcset]="
@@ -110,10 +110,10 @@ import { SplitBeforeCategoryPipe } from '../../../pipes/split-before-category.pi
             <img
               [src]="'/assets/home/mobile/image-' + featuredEarphoneProduct()?.slug + '.jpg'"
               alt="'image of {{ featuredEarphoneProduct()?.slug }}"
-              class="rounded-lg"
+              class="rounded-lg w-full"
             />
           </picture>
-          <div class="bg-grey-light mt-4 py-12 px-8 rounded-lg md:mt-0 md:pt-20 ">
+          <div class="bg-grey-light mt-4 py-12 px-8 rounded-lg md:mt-0 md:pt-20 lg:pl-16">
             <h3 class="font-semibold text-2xl pb-6">
               {{ featuredEarphoneProduct()?.name | uppercase }}
             </h3>
