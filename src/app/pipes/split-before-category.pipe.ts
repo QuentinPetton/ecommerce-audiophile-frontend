@@ -5,6 +5,7 @@ import { toSignal } from '@angular/core/rxjs-interop';
 
 @Pipe({
   name: 'splitBeforeCategory',
+  pure: false,
 })
 export class SplitBeforeCategoryPipe implements PipeTransform {
   private categoryService = inject(CategoryService);
