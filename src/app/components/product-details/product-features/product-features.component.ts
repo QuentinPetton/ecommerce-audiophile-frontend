@@ -20,6 +20,9 @@ import type { ProductItems } from '../../../models/product-items';
           </li>
         }
       </ul>
+      @for (image of productImageGallery(); track $index) {
+        <img [src]="image.imageDesktop" alt="" />
+      }
     </section>
   `,
   styles: '',
@@ -29,5 +32,10 @@ export class ProductFeaturesComponent {
   readonly product = computed(() => this.productSignal());
   readonly productIncludes = computed(() => {
     return this.product().productIncludes;
+  });
+  readonly productImageGallery = computed(() => {
+    return this.product().productImages.filter((img) =>
+      ['gallery_first', 'gallery_second', 'gallery_third'].includes(img.type),
+    );
   });
 }
