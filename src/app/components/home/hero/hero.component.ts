@@ -31,7 +31,7 @@ import { RouterLink } from '@angular/router';
           music enthusiast.
         </p>
         <button
-          class="bg-[#D87D4A] px-6 py-3 text-sm tracking-widest hover:bg-orange-light transition cursor-pointer"
+          class="bg-orange px-6 py-3 text-sm tracking-widest hover:bg-orange-light transition cursor-pointer"
         >
           <a [routerLink]="['/product', product()?.slug]">
             {{ 'see product' | uppercase }}

@@ -10,7 +10,7 @@ import { AddToCartButtonComponent } from '../add-to-cart-button/add-to-cart-butt
   imports: [UpperCasePipe, SplitBeforeCategoryPipe, CurrencyPipe, AddToCartButtonComponent],
   template: `
     @if (product()) {
-      <section class="mx-8">
+      <section class="mx-8 pb-12">
         <picture>
           <source [attr.srcset]="productMainImage()?.desktop" media="(min-width: 1024px)" />
           <source [attr.srcset]="productMainImage()?.tablet" media="(min-width: 768px)" />

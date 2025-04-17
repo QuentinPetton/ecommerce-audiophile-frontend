@@ -1,15 +1,21 @@
 import { Component } from '@angular/core';
+import { UpperCasePipe } from '@angular/common';
 
 @Component({
   selector: 'app-add-to-cart-button',
-  imports: [],
+  imports: [UpperCasePipe],
   template: `
-    <p>
-      add-to-cart-button works!
-    </p>
+    <div class="flex gap-4">
+      <div class="bg-grey-light px-6 py-3 flex gap-4">
+        <button class="opacity-50">-</button>
+        1
+        <button class="opacity-50">+</button>
+      </div>
+      <button class="bg-orange px-6 py-3 text-white text-sm">
+        {{ 'Add to Cart ' | uppercase }}
+      </button>
+    </div>
   `,
-  styles: ``
+  styles: '',
 })
-export class AddToCartButtonComponent {
-
-}
+export class AddToCartButtonComponent {}
