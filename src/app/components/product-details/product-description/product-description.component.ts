@@ -3,10 +3,11 @@ import type { ProductItems } from '../../../models/product-items';
 import { UpperCasePipe } from '@angular/common';
 import { SplitBeforeCategoryPipe } from '../../../pipes/split-before-category.pipe';
 import { CurrencyPipe } from '@angular/common';
+import { AddToCartButtonComponent } from '../add-to-cart-button/add-to-cart-button.component';
 
 @Component({
   selector: 'app-product-description',
-  imports: [UpperCasePipe, SplitBeforeCategoryPipe, CurrencyPipe],
+  imports: [UpperCasePipe, SplitBeforeCategoryPipe, CurrencyPipe, AddToCartButtonComponent],
   template: `
     @if (product()) {
       <picture>
@@ -20,6 +21,7 @@ import { CurrencyPipe } from '@angular/common';
       <h1 class="whitespace-pre-line">{{ product().name | splitBeforeCategory | uppercase }}</h1>
       <p>{{ product().description }}</p>
       <span>{{ product().price | currency: 'USD' : 'symbol' : '1.0-0' : 'en' }}</span>
+      <app-add-to-cart-button> </app-add-to-cart-button>
     }
   `,
   styles: '',
