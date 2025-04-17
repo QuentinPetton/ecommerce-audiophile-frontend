@@ -5,14 +5,16 @@ import { ProductService } from '../../services/product.service';
 import { ActivatedRoute } from '@angular/router';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ProductFeaturesComponent } from './product-features/product-features.component';
+import { OtherProductComponent } from './other-product/other-product.component';
 
 @Component({
   selector: 'app-product-details',
-  imports: [ProductDescriptionComponent, ProductFeaturesComponent],
+  imports: [ProductDescriptionComponent, ProductFeaturesComponent, OtherProductComponent],
   template: `
     <button class="mx-8 opacity-50 cursor-pointer">Go back</button>
     <app-product-description [productSignal]="product()!"></app-product-description>
     <app-product-features [productSignal]="product()!"></app-product-features>
+    <app-other-product [productSignal]="product()!"></app-other-product>
   `,
   styles: '',
 })

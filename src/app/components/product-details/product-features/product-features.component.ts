@@ -11,7 +11,7 @@ import type { ProductItems } from '../../../models/product-items';
         <p class="opacity-50">{{ product().features }}</p>
 
         <h2 class="text-xl font-bold mt-16 mb-6">In the box</h2>
-        <ul>
+        <ul class="mb-16">
           @for (product of productIncludes(); track $index) {
             <li class="my-2">
               <span class="text-orange mr-4">{{ product.quantity }}x</span>
