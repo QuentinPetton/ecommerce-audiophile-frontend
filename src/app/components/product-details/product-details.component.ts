@@ -12,7 +12,7 @@ import { ProductFeaturesComponent } from './product-features/product-features.co
   template: `
     <button class="mx-8 opacity-50 cursor-pointer">Go back</button>
     <app-product-description [productSignal]="product()!"></app-product-description>
-    <app-product-features></app-product-features>
+    <app-product-features [productSignal]="product()!"></app-product-features>
   `,
   styles: '',
 })
