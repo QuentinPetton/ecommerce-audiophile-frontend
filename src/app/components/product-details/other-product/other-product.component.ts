@@ -8,11 +8,14 @@ import type { ProductItems } from '../../../models/product-items';
   template: `
     <p>other-product works!</p>
     <h3>{{ 'You may also like' | uppercase }}</h3>
-    <p>{{ product().others[0].otherSlug }}</p>
+    @for (otherProduct of othersProduct(); track $index) {
+      <img [src]="otherProduct.imageMobile" alt="image of {{ otherProduct.otherName }}" />
+      <h4>{{ otherProduct.otherName }}</h4>
+    }
   `,
   styles: '',
 })
 export class OtherProductComponent {
   readonly productSignal = input.required<ProductItems>();
-  readonly product = computed(() => this.productSignal());
+  readonly othersProduct = computed(() => this.productSignal().others);
 }
