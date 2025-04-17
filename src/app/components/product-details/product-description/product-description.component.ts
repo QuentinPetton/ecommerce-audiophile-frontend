@@ -10,18 +10,32 @@ import { AddToCartButtonComponent } from '../add-to-cart-button/add-to-cart-butt
   imports: [UpperCasePipe, SplitBeforeCategoryPipe, CurrencyPipe, AddToCartButtonComponent],
   template: `
     @if (product()) {
-      <picture>
-        <source [attr.srcset]="productMainImage()?.desktop" media="(min-width: 1024px)" />
-        <source [attr.srcset]="productMainImage()?.tablet" media="(min-width: 768px)" />
-        <img [src]="productMainImage()?.mobile" alt="Image of {{ product().slug }}" />
-      </picture>
-      @if (product().new) {
-        <span>{{ 'new product' | uppercase }}</span>
-      }
-      <h1 class="whitespace-pre-line">{{ product().name | splitBeforeCategory | uppercase }}</h1>
-      <p>{{ product().description }}</p>
-      <span>{{ product().price | currency: 'USD' : 'symbol' : '1.0-0' : 'en' }}</span>
-      <app-add-to-cart-button> </app-add-to-cart-button>
+      <section class="mx-8">
+        <picture>
+          <source [attr.srcset]="productMainImage()?.desktop" media="(min-width: 1024px)" />
+          <source [attr.srcset]="productMainImage()?.tablet" media="(min-width: 768px)" />
+          <img
+            class="rounded-lg mb-6"
+            [src]="productMainImage()?.mobile"
+            alt="Image of {{ product().slug }}"
+          />
+        </picture>
+        <div class="flex flex-col gap-4">
+          @if (product().new) {
+            <span class="text-xs text-orange tracking-[0.5rem]">{{
+              'new product' | uppercase
+            }}</span>
+          }
+          <h1 class="whitespace-pre-line text-xl font-semibold">
+            {{ product().name | splitBeforeCategory | uppercase }}
+          </h1>
+          <p class="opacity-50 text-sm">{{ product().description }}</p>
+          <span class="font-bold">{{
+            product().price | currency: 'USD' : 'symbol' : '1.0-0' : 'en'
+          }}</span>
+          <app-add-to-cart-button> </app-add-to-cart-button>
+        </div>
+      </section>
     }
   `,
   styles: '',

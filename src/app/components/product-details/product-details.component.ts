@@ -8,7 +8,10 @@ import { toSignal } from '@angular/core/rxjs-interop';
 @Component({
   selector: 'app-product-details',
   imports: [ProductDescriptionComponent],
-  template: ` <app-product-description [productSignal]="product()!"></app-product-description> `,
+  template: `
+    <button class="mx-8 opacity-50 cursor-pointer">Go back</button>
+    <app-product-description [productSignal]="product()!"></app-product-description>
+  `,
   styles: '',
 })
 export class ProductDetailsComponent {

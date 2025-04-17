@@ -17,7 +17,7 @@ import { RouterLink } from '@angular/router';
         lg:bg-[url('/assets/home/desktop/image-hero.jpg')] lg:items-start lg:pl-22
         "
       >
-        @if (product()?.new === true) {
+        @if (product()?.new) {
           <span class="tracking-[0.5rem] text-sm opacity-40 mt-16 mb-2">{{
             'new product' | uppercase
           }}</span>
