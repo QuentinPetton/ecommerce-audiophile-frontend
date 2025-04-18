@@ -19,7 +19,7 @@ import { AboutComponent } from '../home/about/about.component';
     AboutComponent,
   ],
   template: `
-    <button class="mx-8 opacity-50 cursor-pointer">Go back</button>
+    <button class="mx-8 opacity-50 cursor-pointer md:mx-12 lg:mx-24">Go back</button>
     <app-product-description [productSignal]="product()!"></app-product-description>
     <app-product-features [productSignal]="product()!"></app-product-features>
     <app-other-product [productSignal]="product()!"></app-other-product>

@@ -10,17 +10,17 @@ import { AddToCartButtonComponent } from '../add-to-cart-button/add-to-cart-butt
   imports: [UpperCasePipe, SplitBeforeCategoryPipe, CurrencyPipe, AddToCartButtonComponent],
   template: `
     @if (product()) {
-      <section class="mx-8 pb-12 md:grid md:grid-cols-2 md:gap-12">
+      <section class="mx-8 pb-12 md:grid md:grid-cols-2 md:gap-12 lg:mx-24 lg:gap-16">
         <picture>
           <source [attr.srcset]="productMainImage()?.desktop" media="(min-width: 1024px)" />
           <source [attr.srcset]="productMainImage()?.tablet" media="(min-width: 768px)" />
           <img
-            class="rounded-lg mb-6"
+            class="rounded-lg mb-6 lg:mb-0"
             [src]="productMainImage()?.mobile"
             alt="Image of {{ product().slug }}"
           />
         </picture>
-        <div class="flex flex-col gap-4 md: mt-18 md:gap-8">
+        <div class="flex flex-col gap-4 md: mt-18 md:gap-8 lg:mt-8 lg:gap-6 lg:justify-center">
           @if (product().new) {
             <span class="text-xs text-orange tracking-[0.5rem] ">{{
               'new product' | uppercase

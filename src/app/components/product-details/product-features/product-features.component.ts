@@ -7,16 +7,22 @@ import { UpperCasePipe } from '@angular/common';
   imports: [UpperCasePipe],
   template: `
     @if (product()) {
-      <section class="mx-8 mb-8 md:grid md:grid-cols-2">
-        <h2 class="text-xl font-bold mb-8 md:text-3xl md:col-span-2">
+      <section
+        class="mx-8 mb-8 md:grid md:grid-cols-2 lg:mx-24 lg:gap-x-16 lg:mt-24 lg:justify-items-center"
+      >
+        <h2 class="text-xl font-bold mb-8 md:text-3xl md:col-span-2 lg:col-span-1 lg:col-start-1 ">
           {{ 'Features' | uppercase }}
         </h2>
-        <p class="opacity-50 md:col-span-2">{{ product().features }}</p>
+        <p class="opacity-50 md:col-span-2 lg:col-span-1 lg:col-start-1">
+          {{ product().features }}
+        </p>
 
-        <h2 class="text-xl font-bold mt-16 mb-6 md:text-3xl md:mt-24">
+        <h2
+          class="text-xl font-bold mt-16 mb-6 md:text-3xl md:mt-24 lg:col-start-2 lg:row-start-1 lg:mt-0"
+        >
           {{ 'In the box' | uppercase }}
         </h2>
-        <ul class="mb-16 md:mt-24">
+        <ul class="mb-16 md:mt-24 lg:col-start-2 lg:mt-0">
           @for (product of productIncludes(); track $index) {
             <li class="my-2">
               <span class="text-orange mr-4">{{ product.quantity }}x</span>
@@ -26,7 +32,7 @@ import { UpperCasePipe } from '@angular/common';
             </li>
           }
         </ul>
-        <div class="md:grid md:grid-cols-5 md:col-span-2 md:gap-4">
+        <div class="md:grid md:grid-cols-5 md:col-span-2 md:gap-4 lg:my-24">
           @for (image of productImageGallery(); track $index) {
             <div
               class=" col-span-2 {{
