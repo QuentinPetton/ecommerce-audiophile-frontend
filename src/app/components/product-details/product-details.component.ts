@@ -7,6 +7,7 @@ import { toSignal } from '@angular/core/rxjs-interop';
 import { ProductFeaturesComponent } from './product-features/product-features.component';
 import { OtherProductComponent } from './other-product/other-product.component';
 import { CategoriesComponent } from '../home/categories/categories.component';
+import { AboutComponent } from '../home/about/about.component';
 
 @Component({
   selector: 'app-product-details',
@@ -15,6 +16,7 @@ import { CategoriesComponent } from '../home/categories/categories.component';
     ProductFeaturesComponent,
     OtherProductComponent,
     CategoriesComponent,
+    AboutComponent,
   ],
   template: `
     <button class="mx-8 opacity-50 cursor-pointer">Go back</button>
@@ -22,6 +24,7 @@ import { CategoriesComponent } from '../home/categories/categories.component';
     <app-product-features [productSignal]="product()!"></app-product-features>
     <app-other-product [productSignal]="product()!"></app-other-product>
     <app-categories></app-categories>
+    <app-about></app-about>
   `,
   styles: '',
 })

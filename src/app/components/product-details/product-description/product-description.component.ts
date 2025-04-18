@@ -10,7 +10,7 @@ import { AddToCartButtonComponent } from '../add-to-cart-button/add-to-cart-butt
   imports: [UpperCasePipe, SplitBeforeCategoryPipe, CurrencyPipe, AddToCartButtonComponent],
   template: `
     @if (product()) {
-      <section class="mx-8 pb-12">
+      <section class="mx-8 pb-12 md:grid md:grid-cols-2 md:gap-12">
         <picture>
           <source [attr.srcset]="productMainImage()?.desktop" media="(min-width: 1024px)" />
           <source [attr.srcset]="productMainImage()?.tablet" media="(min-width: 768px)" />
@@ -20,16 +20,16 @@ import { AddToCartButtonComponent } from '../add-to-cart-button/add-to-cart-butt
             alt="Image of {{ product().slug }}"
           />
         </picture>
-        <div class="flex flex-col gap-4">
+        <div class="flex flex-col gap-4 md: mt-18 md:gap-8">
           @if (product().new) {
-            <span class="text-xs text-orange tracking-[0.5rem]">{{
+            <span class="text-xs text-orange tracking-[0.5rem] ">{{
               'new product' | uppercase
             }}</span>
           }
-          <h1 class="whitespace-pre-line text-xl font-semibold">
+          <h1 class="whitespace-pre-line text-xl font-semibold md:text-3xl">
             {{ product().name | splitBeforeCategory | uppercase }}
           </h1>
-          <p class="opacity-50 text-sm">{{ product().description }}</p>
+          <p class="opacity-50 text-sm md:text-base">{{ product().description }}</p>
           <span class="font-bold">{{
             product().price | currency: 'USD' : 'symbol' : '1.0-0' : 'en'
           }}</span>

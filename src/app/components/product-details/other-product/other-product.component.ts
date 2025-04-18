@@ -11,7 +11,11 @@ import { RouterLink } from '@angular/router';
       <section class="text-center mx-8 font-semibold my-16">
         <h3 class="mb-6 text-xl">{{ 'You may also like' | uppercase }}</h3>
         @for (otherProduct of othersProduct(); track $index) {
-          <img [src]="otherProduct.imageMobile" alt="image of {{ otherProduct.otherName }}" />
+          <img
+            class="rounded-lg"
+            [src]="otherProduct.imageMobile"
+            alt="image of {{ otherProduct.otherName }}"
+          />
           <h4 class="text-xl my-6">{{ otherProduct.otherName }}</h4>
           <button
             class="bg-orange px-3 py-2 mb-8 font-normal text-white text-xs tracking-widest hover:bg-orange-light transition cursor-pointer"
