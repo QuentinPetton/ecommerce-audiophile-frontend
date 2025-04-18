@@ -3,6 +3,8 @@ import { provideRouter, type Routes } from '@angular/router';
 import { provideHttpClient } from '@angular/common/http';
 import { HomeComponent } from './components/home/home.component';
 import { MainLayoutComponent } from './components/shared/layout/main-layout/main-layout.component';
+import { ProductDetailsComponent } from './components/product-details/product-details.component';
+import { isProductExistGuard } from './guards/is-product-exist.guard';
 
 export const routes: Routes = [
   {
@@ -12,6 +14,11 @@ export const routes: Routes = [
       {
         path: '',
         component: HomeComponent,
+      },
+      {
+        path: 'product/:slug',
+        component: ProductDetailsComponent,
+        canActivate: [isProductExistGuard],
       },
     ],
   },

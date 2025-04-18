@@ -1,13 +1,13 @@
 import { Component, inject } from '@angular/core';
 import { ProductService } from '../../../services/product.service';
-import { ProductItems } from '../../../models/product-items';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { UpperCasePipe } from '@angular/common';
 import { SplitBeforeCategoryPipe } from '../../../pipes/split-before-category.pipe';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-featured-products',
-  imports: [UpperCasePipe, SplitBeforeCategoryPipe],
+  imports: [UpperCasePipe, SplitBeforeCategoryPipe, RouterLink],
   template: `
     <section class="overflow-hidden mt-20 lg:mx-12 ">
       @if (featuredSpeakerPrimaryProduct()) {
@@ -48,7 +48,9 @@ import { SplitBeforeCategoryPipe } from '../../../pipes/split-before-category.pi
             <button
               class="bg-black py-4 px-8 text-sm cursor-pointer hover:bg-grey lg:py-3 lg:px-6 lg:text-xs"
             >
-              {{ 'see product' | uppercase }}
+              <a [routerLink]="['/product', featuredSpeakerPrimaryProduct()?.slug]">
+                {{ 'see product' | uppercase }}
+              </a>
             </button>
           </div>
         </div>
@@ -85,7 +87,9 @@ import { SplitBeforeCategoryPipe } from '../../../pipes/split-before-category.pi
             <button
               class="border border-black py-3 px-6 text-sm cursor-pointer hover:bg-black hover:text-white"
             >
-              {{ 'see product' | uppercase }}
+              <a [routerLink]="['/product', featuredSpeakerSecondaryProduct()?.slug]">
+                {{ 'see product' | uppercase }}
+              </a>
             </button>
           </div>
         </div>
@@ -120,7 +124,9 @@ import { SplitBeforeCategoryPipe } from '../../../pipes/split-before-category.pi
             <button
               class="border border-black py-3 px-6 text-sm cursor-pointer hover:bg-black hover:text-white"
             >
-              {{ 'see product' | uppercase }}
+              <a [routerLink]="['/product', featuredEarphoneProduct()?.slug]">
+                {{ 'see product' | uppercase }}
+              </a>
             </button>
           </div>
         </div>
