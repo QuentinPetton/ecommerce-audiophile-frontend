@@ -7,9 +7,7 @@ import { UpperCasePipe } from '@angular/common';
   imports: [UpperCasePipe],
   template: `
     @if (product()) {
-      <section
-        class="mx-8 mb-8 md:grid md:grid-cols-2 lg:mx-24 lg:gap-x-16 lg:mt-24 lg:justify-items-center"
-      >
+      <section class="mx-8 mb-8 md:grid md:grid-cols-2 lg:mx-24 lg:gap-x-16 lg:mt-24 ">
         <h2 class="text-xl font-bold mb-8 md:text-3xl md:col-span-2 lg:col-span-1 lg:col-start-1 ">
           {{ 'Features' | uppercase }}
         </h2>
