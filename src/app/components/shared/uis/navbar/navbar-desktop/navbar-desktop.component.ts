@@ -2,16 +2,19 @@ import { Component, inject } from '@angular/core';
 import { UpperCasePipe } from '@angular/common';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { CategoryService } from '../../../../../services/category.service';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-navbar-desktop',
-  imports: [UpperCasePipe],
+  imports: [UpperCasePipe, RouterLink],
   template: `
-    <nav class="absolute w-full  text-white px-22">
+    <nav class="absolute w-full  text-white px-22 bg-black">
       <div class=" flex items-center justify-between border-b border-grey-light/30 py-6">
         <img src="/assets/shared/desktop/logo.svg" alt="logo audiophile" />
         <ul class="text-xs flex items-center gap-6">
-          <li class=" cursor-pointer hover:text-orange-light">{{ 'Home' | uppercase }}</li>
+          <li class=" cursor-pointer hover:text-orange-light">
+            <a [routerLink]="'/'">{{ 'Home' | uppercase }}</a>
+          </li>
           @for (category of categories(); track $index) {
             <li class=" cursor-pointer hover:text-orange-light">
               {{ category.slug | uppercase }}
