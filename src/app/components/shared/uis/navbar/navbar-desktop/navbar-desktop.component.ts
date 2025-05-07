@@ -8,9 +8,12 @@ import { RouterLink } from '@angular/router';
   selector: 'app-navbar-desktop',
   imports: [UpperCasePipe, RouterLink],
   template: `
-    <nav class="absolute w-full  text-white px-22 bg-black">
+    <nav class=" w-full  text-white px-22 bg-black">
       <div class=" flex items-center justify-between border-b border-grey-light/30 py-6">
-        <img src="/assets/shared/desktop/logo.svg" alt="logo audiophile" />
+        <a [routerLink]="'/'"
+          ><img src="/assets/shared/desktop/logo.svg" alt="logo audiophile"
+        /></a>
+
         <ul class="text-xs flex items-center gap-6">
           <li class=" cursor-pointer hover:text-orange-light">
             <a [routerLink]="'/'">{{ 'Home' | uppercase }}</a>
