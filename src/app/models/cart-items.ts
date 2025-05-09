@@ -5,4 +5,5 @@ export interface CartItems {
   slug: ProductItems['slug'];
   price: ProductItems['price'];
   image: ProductImages['imageMobile'];
+  quantity: number;
 }

@@ -1,4 +1,7 @@
-import { Component, signal } from '@angular/core';
+import type { ProductItems } from './../../../models/product-items';
+import type { CartItems } from './../../../models/cart-items';
+import { CartService } from './../../../services/cart.service';
+import { Component, inject, input, signal } from '@angular/core';
 import { UpperCasePipe } from '@angular/common';
 
 @Component({
@@ -28,7 +31,9 @@ import { UpperCasePipe } from '@angular/common';
   styles: '',
 })
 export class AddToCartButtonComponent {
+  readonly product = input.required<ProductItems>();
   quantity = signal(1);
+  private readonly cartService = inject(CartService);
   increment() {
     this.quantity.update((currentValue) => currentValue + 1);
   }
@@ -36,6 +41,13 @@ export class AddToCartButtonComponent {
     this.quantity.update((currentValue) => currentValue - 1);
   }
   addToCart() {
-    console.log(this.quantity());
+    const addProductToCart: CartItems = {
+      id: this.product().id,
+      slug: this.product().slug,
+      price: this.product().price,
+      quantity: this.quantity(),
+      image: this.product().productImages[0].imageMobile,
+    };
+    this.cartService.addToCart(addProductToCart);
   }
 }

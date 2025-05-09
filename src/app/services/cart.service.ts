@@ -1,0 +1,33 @@
+import { Injectable, signal } from '@angular/core';
+import type { CartItems } from '../models/cart-items';
+
+@Injectable({
+  providedIn: 'root',
+})
+export class CartService {
+  private cartItems = signal<CartItems[]>([]);
+
+  getCartItems() {
+    return this.cartItems;
+  }
+
+  addToCart(product: CartItems) {
+    //1) On vérifie si le produit existe
+    //2) Si oui, on récupère le produit et on update la quantité
+    //3) Sinon, ajout au tableau
+    this.cartItems.update((items) => {
+      const existingItem = items.find((item) => item.id === product.id);
+      if (existingItem) {
+        return items.map((item) =>
+          item.id === product.id
+            ? {
+                ...item,
+                quantity: item.quantity + product.quantity,
+              }
+            : item,
+        );
+      }
+      return [...items, product];
+    });
+  }
+}
