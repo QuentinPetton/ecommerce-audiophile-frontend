@@ -7,11 +7,18 @@ import { UpperCasePipe } from '@angular/common';
   template: `
     <div class="flex gap-4">
       <div class="bg-grey-light px-6 py-3 flex gap-4">
-        <button (click)="decrement()" class="opacity-50 cursor-pointer">-</button>
+        <button
+          [disabled]="quantity() <= 1"
+          (click)="decrement()"
+          class="opacity-50 cursor-pointer"
+        >
+          -
+        </button>
         {{ quantity() }}
         <button (click)="increment()" class="opacity-50 cursor-pointer">+</button>
       </div>
       <button
+        (click)="addToCart()"
         class="bg-orange px-6 py-3 text-white text-sm cursor-pointer hover:bg-orange-light transition"
       >
         {{ 'Add to Cart ' | uppercase }}
@@ -27,5 +34,8 @@ export class AddToCartButtonComponent {
   }
   decrement() {
     this.quantity.update((currentValue) => currentValue - 1);
+  }
+  addToCart() {
+    console.log(this.quantity());
   }
 }
