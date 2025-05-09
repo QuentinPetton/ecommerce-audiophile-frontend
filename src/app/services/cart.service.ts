@@ -30,4 +30,21 @@ export class CartService {
       return [...items, product];
     });
   }
+  removeOneQuantityFromCart(productId: number) {
+    this.cartItems.update((items) => {
+      return items
+        .map((item) =>
+          item.id === productId
+            ? {
+                ...item,
+                quantity: item.quantity - 1,
+              }
+            : item,
+        )
+        .filter((item) => item.quantity > 0);
+    });
+  }
+  clearCart() {
+    this.cartItems.set([]);
+  }
 }
