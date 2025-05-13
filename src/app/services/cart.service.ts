@@ -5,7 +5,13 @@ import type { CartItems } from '../models/cart-items';
   providedIn: 'root',
 })
 export class CartService {
+  private cartIsOpen = signal(false);
   private cartItems = signal<CartItems[]>([]);
+  readonly isCartOpen = this.cartIsOpen.asReadonly();
+
+  toggleCart() {
+    this.cartIsOpen.update((isOpen) => !isOpen);
+  }
 
   getCartItems() {
     return this.cartItems;
