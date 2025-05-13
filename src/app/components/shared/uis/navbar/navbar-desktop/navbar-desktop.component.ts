@@ -3,12 +3,11 @@ import { UpperCasePipe } from '@angular/common';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { CategoryService } from '../../../../../services/category.service';
 import { RouterLink } from '@angular/router';
-import { CartService } from '../../../../../services/cart.service';
-import { JsonPipe } from '@angular/common';
+import { CartIconComponent } from '../../header/cart-icon.component';
 
 @Component({
   selector: 'app-navbar-desktop',
-  imports: [UpperCasePipe, RouterLink, JsonPipe],
+  imports: [UpperCasePipe, RouterLink, CartIconComponent],
   template: `
     <nav class=" w-full  text-white px-22 bg-black">
       <div class=" flex items-center justify-between border-b border-grey-light/30 py-6">
@@ -26,11 +25,7 @@ import { JsonPipe } from '@angular/common';
             </li>
           }
         </ul>
-        <img src="/assets/shared/desktop/icon-cart.svg" alt="cart icon" />
-        @if (cartItems().length === 0) {
-          <p>Votre panier est vide</p>
-        }
-        <pre>{{ cartItems() | json }}</pre>
+        <app-cart-icon></app-cart-icon>
       </div>
     </nav>
   `,
@@ -39,6 +34,4 @@ import { JsonPipe } from '@angular/common';
 export class NavbarDesktopComponent {
   private readonly categoryService = inject(CategoryService);
   readonly categories = toSignal(this.categoryService.getAllCategories());
-  readonly cartService = inject(CartService);
-  readonly cartItems = this.cartService.getCartItems();
 }
