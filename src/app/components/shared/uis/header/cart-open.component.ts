@@ -12,15 +12,18 @@ import { CurrencyPipe } from '@angular/common';
     }
     <div>
       <h2>{{ 'Cart' | uppercase }} ({{ cartItems().length }})</h2>
-      <button class="cursor-pointer">Remove all</button>
+      <button (click)="removeAllItemsFromCart()" class="cursor-pointer">Remove all</button>
       @for (cartItems of cartItems(); track $index) {
         <div>
+          <img [src]="cartItems.image" alt="Image of {{ cartItems.slug }}" />
           <h3>{{ cartItems.slug | uppercase }}</h3>
           <span>{{ cartItems.price | currency: 'USD' : 'symbol' : '1.0-0' : 'en' }}</span>
           <div>
-            <button class="cursor-pointer">-</button>
+            <button (click)="removeOneQuantityFromCart(cartItems.id)" class="cursor-pointer">
+              -
+            </button>
             <span>{{ cartItems.quantity }}</span>
-            <button class="cursor-pointer">+</button>
+            <button (click)="addOneQuantityToCart(cartItems.id)" class="cursor-pointer">+</button>
           </div>
         </div>
         <span>{{ 'Total' | uppercase }}</span>
@@ -33,4 +36,7 @@ import { CurrencyPipe } from '@angular/common';
 export class CartOpenComponent {
   readonly CartService = inject(CartService);
   readonly cartItems = this.CartService.getCartItems();
+  readonly removeOneQuantityFromCart = this.CartService.removeOneQuantityFromCart;
+  readonly addOneQuantityToCart = this.CartService.addOneQuantityToCart;
+  readonly removeAllItemsFromCart = this.CartService.removeAllItemsFromCart;
 }

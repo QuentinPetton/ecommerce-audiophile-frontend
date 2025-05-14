@@ -36,6 +36,19 @@ export class CartService {
       return [...items, product];
     });
   }
+  addOneQuantityToCart(productId: number) {
+    this.cartItems.update((items) => {
+      return items.map((item) =>
+        item.id === productId
+          ? {
+              ...item,
+              quantity: item.quantity + 1,
+            }
+          : item,
+      );
+    });
+  }
+
   removeOneQuantityFromCart(productId: number) {
     this.cartItems.update((items) => {
       return items
