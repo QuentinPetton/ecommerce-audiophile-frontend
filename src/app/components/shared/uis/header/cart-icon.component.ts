@@ -1,15 +1,15 @@
 import { Component, inject } from '@angular/core';
 import { CartService } from '../../../../services/cart.service';
-import { CartOpenComponent } from './cart-open.component';
 
 @Component({
   selector: 'app-cart-icon',
-  imports: [CartOpenComponent],
+  imports: [],
   template: `
-    <img (click)="handleCartClick()" src="/assets/shared/desktop/icon-cart.svg" alt="cart icon" />
-    @if (cartService.isCartOpen()) {
-      <app-cart-open></app-cart-open>
-    }
+    <img
+      (click)="handleCartClick()"
+      src="/assets/shared/desktop/icon-cart.svg"
+      alt="cart icon, click to open cartItems"
+    />
   `,
   styles: '',
 })

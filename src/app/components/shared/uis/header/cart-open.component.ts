@@ -10,7 +10,9 @@ import { CurrencyPipe } from '@angular/common';
     @if (cartItems().length === 0) {
       <p>Votre panier est vide</p>
     }
-    <div>
+    <div
+      class="fixed right-30 top-20 max-h-[80vh] w-full max-w-[377px] bg-white text-black p-6 shadow-2xl rounded-lg z-50 overflow-y-auto"
+    >
       <h2>{{ 'Cart' | uppercase }} ({{ cartItems().length }})</h2>
       <button (click)="removeAllItemsFromCart()" class="cursor-pointer">Remove all</button>
       @for (cartItems of cartItems(); track $index) {

@@ -66,4 +66,6 @@ export class CartService {
   removeAllItemsFromCart() {
     this.cartItems.set([]);
   }
+
+  //TODO: implementer getCartTotalPrice
 }
