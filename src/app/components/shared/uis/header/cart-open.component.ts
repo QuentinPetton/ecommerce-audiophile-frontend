@@ -15,6 +15,7 @@ import { CurrencyPipe } from '@angular/common';
     >
       <h2>{{ 'Cart' | uppercase }} ({{ cartItems().length }})</h2>
       <button (click)="removeAllItemsFromCart()" class="cursor-pointer">Remove all</button>
+      <button (click)="toggleCart()" class=" text-red-700  px-6">x</button>
       @for (cartItems of cartItems(); track $index) {
         <div>
           <img [src]="cartItems.image" alt="Image of {{ cartItems.slug }}" />
@@ -41,4 +42,5 @@ export class CartOpenComponent {
   readonly removeOneQuantityFromCart = this.CartService.removeOneQuantityFromCart;
   readonly addOneQuantityToCart = this.CartService.addOneQuantityToCart;
   readonly removeAllItemsFromCart = this.CartService.removeAllItemsFromCart;
+  readonly toggleCart = this.CartService.toggleCart;
 }

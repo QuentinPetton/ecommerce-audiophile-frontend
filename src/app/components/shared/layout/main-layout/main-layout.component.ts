@@ -13,7 +13,7 @@ import { CartService } from '../../../../services/cart.service';
     <router-outlet></router-outlet>
     <app-footer></app-footer>
     @if (cartService.isCartOpen()) {
-      <div class="fixed inset-0 bg-black/50 z-40"></div>
+      <div (click)="cartService.toggleCart()" class="fixed inset-0 bg-black/50 z-40"></div>
       <app-cart-open></app-cart-open>
     }
   `,
