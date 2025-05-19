@@ -65,6 +65,7 @@ export class CartService {
   }
   removeAllItemsFromCart() {
     this.cartItems.set([]);
+    this.toggleCart();
   }
 
   //TODO: implementer getCartTotalPrice
