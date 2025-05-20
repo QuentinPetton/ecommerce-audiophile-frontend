@@ -68,7 +68,6 @@ export class CartService {
     this.toggleCart();
   }
 
-  //TODO: implementer getCartTotalPrice
   getCartTotalPrice() {
     return this.cartItems().reduce((total, item) => {
       return total + item.price * item.quantity;
