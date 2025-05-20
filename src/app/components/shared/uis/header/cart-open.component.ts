@@ -47,5 +47,5 @@ export class CartOpenComponent {
   readonly removeOneQuantityFromCart = this.CartService.removeOneQuantityFromCart;
   readonly addOneQuantityToCart = this.CartService.addOneQuantityToCart;
   readonly removeAllItemsFromCart = this.CartService.removeAllItemsFromCart;
-  readonly toggleCart = () => this.CartService.toggleCart;
+  readonly toggleCart = () => this.CartService.toggleCart();
 }
