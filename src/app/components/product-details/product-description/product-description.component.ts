@@ -33,7 +33,7 @@ import { AddToCartButtonComponent } from '../add-to-cart-button/add-to-cart-butt
           <span class="font-bold">{{
             product().price | currency: 'USD' : 'symbol' : '1.0-0' : 'en'
           }}</span>
-          <app-add-to-cart-button> </app-add-to-cart-button>
+          <app-add-to-cart-button [product]="product()"> </app-add-to-cart-button>
         </div>
       </section>
     }

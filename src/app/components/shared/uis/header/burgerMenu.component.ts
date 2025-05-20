@@ -1,8 +1,9 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { CartIconComponent } from './cart-icon.component';
 
 @Component({
   selector: 'app-burgerMenu',
-  imports: [],
+  imports: [CartIconComponent],
   template: ` <nav
     class="absolute flex justify-between px-8 w-full items-center py-4 border-b border-grey-light/30"
   >
@@ -10,7 +11,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
       <img src="/assets/shared/tablet/icon-hamburger.svg" alt="burger menu icon" />
     </button>
     <img src="/assets/shared/desktop/logo.svg" alt="logo audiophile" />
-    <img src="/assets/shared/desktop/icon-cart.svg" alt="cart icon" />
+    <app-cart-icon></app-cart-icon>
   </nav>`,
   styles: '',
 })
