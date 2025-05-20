@@ -7,9 +7,6 @@ import { CurrencyPipe } from '@angular/common';
   selector: 'app-cart-open',
   imports: [UpperCasePipe, CurrencyPipe],
   template: `
-    @if (cartItems().length === 0) {
-      <p>Votre panier est vide</p>
-    }
     <div
       class="fixed inset-0 z-50 flex justify-center items-start mt-20 px-4 md:justify-end lg:mr-10"
     >
@@ -17,8 +14,12 @@ import { CurrencyPipe } from '@angular/common';
         class=" top-20 max-h-[80vh] w-full max-w-[377px] bg-white text-black p-6 shadow-2xl rounded-lg z-50 overflow-y-auto"
       >
         <h2>{{ 'Cart' | uppercase }} ({{ cartItems().length }})</h2>
-        <button (click)="removeAllItemsFromCart()" class="cursor-pointer">Remove all</button>
-        <button (click)="toggleCart()" class=" text-red-700  px-6">x</button>
+        @if (cartItems().length === 0) {
+          <p>Votre panier est vide</p>
+        } @else {
+          <button (click)="removeAllItemsFromCart()" class="cursor-pointer">Remove all</button>
+          <button (click)="toggleCart()" class=" text-red-700  px-6">x</button>
+        }
         @for (cartItems of cartItems(); track $index) {
           <div>
             <img [src]="cartItems.image" alt="Image of {{ cartItems.slug }}" />
