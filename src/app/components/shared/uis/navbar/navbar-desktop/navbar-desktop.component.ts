@@ -21,7 +21,9 @@ import { CartIconComponent } from '../../header/cart-icon.component';
           </li>
           @for (category of categories(); track $index) {
             <li class=" cursor-pointer hover:text-orange-light">
-              {{ category.slug | uppercase }}
+              <a [routerLink]="['/category', category.slug]">
+                {{ category.slug | uppercase }}
+              </a>
             </li>
           }
         </ul>
