@@ -31,3 +31,4 @@ export class NavbarComponent {
   private readonly categoryService = inject(CategoryService);
   readonly categories = toSignal(this.categoryService.getAllCategories());
 }
+//TODO renommer ce composant pour spécifier mobile/tablet

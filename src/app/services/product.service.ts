@@ -17,4 +17,7 @@ export class ProductService {
   getProductBySlug(slug: string) {
     return this.http.get<ProductItems>(`${this.apiUrl}/products/${slug}`);
   }
+  getProductsByCategorySlug(slug: string) {
+    return this.http.get<ProductItems[]>(`${this.apiUrl}/products/category/${slug}`);
+  }
 }
