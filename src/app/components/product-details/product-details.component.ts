@@ -6,7 +6,7 @@ import { ActivatedRoute } from '@angular/router';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ProductFeaturesComponent } from './product-features/product-features.component';
 import { OtherProductComponent } from './other-product/other-product.component';
-import { CategoriesComponent } from '../home/categories/categories.component';
+import { CategoriesComponent } from '../categories/categories.component';
 import { AboutComponent } from '../home/about/about.component';
 
 @Component({

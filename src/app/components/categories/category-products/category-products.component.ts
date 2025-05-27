@@ -1,9 +1,9 @@
 import { Component, inject } from '@angular/core';
-import { ProductService } from '../../../../services/product.service';
+import { ProductService } from '../../../services/product.service';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute } from '@angular/router';
 import { map, switchMap } from 'rxjs';
-import { ProductDescriptionComponent } from '../../../product-details/product-description/product-description.component';
+import { ProductDescriptionComponent } from '../../product-details/product-description/product-description.component';
 
 @Component({
   selector: 'app-category-products',

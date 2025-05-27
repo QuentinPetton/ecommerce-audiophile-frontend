@@ -5,7 +5,7 @@ import { HomeComponent } from './components/home/home.component';
 import { MainLayoutComponent } from './components/shared/layout/main-layout/main-layout.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { isProductExistGuard } from './guards/is-product-exist.guard';
-import { CategoryProductsComponent } from './components/home/categories/category-products/category-products.component';
+import { CategoryProductsComponent } from './components/categories/category-products/category-products.component';
 
 export const routes: Routes = [
   {

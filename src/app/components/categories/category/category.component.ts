@@ -1,5 +1,5 @@
 import { Component, input } from '@angular/core';
-import type { Category } from '../../../../models/category';
+import type { Category } from '../../../models/category';
 import { UpperCasePipe } from '@angular/common';
 import { RouterLink } from '@angular/router';
 
