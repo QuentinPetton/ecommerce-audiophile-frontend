@@ -5,10 +5,11 @@ import { ActivatedRoute } from '@angular/router';
 import { map, switchMap } from 'rxjs';
 import { ProductDescriptionComponent } from '../../product-details/product-description/product-description.component';
 import { CategoriesComponent } from '../categories.component';
+import { AboutComponent } from '../../home/about/about.component';
 
 @Component({
   selector: 'app-category-products',
-  imports: [ProductDescriptionComponent, CategoriesComponent],
+  imports: [ProductDescriptionComponent, CategoriesComponent, AboutComponent],
   template: `
     @for (product of products(); track $index) {
       <app-product-description
@@ -17,6 +18,7 @@ import { CategoriesComponent } from '../categories.component';
       ></app-product-description>
     }
     <app-categories></app-categories>
+    <app-about></app-about>
   `,
   styles: '',
 })
