@@ -10,7 +10,10 @@ import { ProductDescriptionComponent } from '../../../product-details/product-de
   imports: [ProductDescriptionComponent],
   template: `
     @for (product of products(); track $index) {
-      <app-product-description [productSignal]="product"></app-product-description>
+      <app-product-description
+        [productSignal]="product"
+        class="text-center"
+      ></app-product-description>
     }
   `,
   styles: '',
@@ -22,6 +25,10 @@ export class CategoryProductsComponent {
     this.route.paramMap.pipe(
       map((params) => params.get('slug') as string),
       switchMap((slug) => this.productService.getProductsByCategorySlug(slug)),
+      map(
+        // Sort to show new products first
+        (products) => products.slice().sort((a, b) => (b.new ? 1 : 0) - (a.new ? 1 : 0)),
+      ),
     ),
   );
   //TODO: isoler productDescription button pour avoir un see more depuis catégories
