@@ -1,4 +1,5 @@
-import { Component, inject } from '@angular/core';
+import { UpperCasePipe } from '@angular/common';
+import { Component, inject, signal } from '@angular/core';
 import { ProductService } from '../../../services/product.service';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute } from '@angular/router';
@@ -9,8 +10,9 @@ import { AboutComponent } from '../../home/about/about.component';
 
 @Component({
   selector: 'app-category-products',
-  imports: [ProductDescriptionComponent, CategoriesComponent, AboutComponent],
+  imports: [ProductDescriptionComponent, CategoriesComponent, AboutComponent, UpperCasePipe],
   template: `
+    <h1>{{ categorySlug() | uppercase }}</h1>
     @for (product of products(); track $index) {
       <app-product-description
         [productSignal]="product"
@@ -25,6 +27,9 @@ import { AboutComponent } from '../../home/about/about.component';
 export class CategoryProductsComponent {
   private readonly route = inject(ActivatedRoute);
   private readonly productService = inject(ProductService);
+  readonly categorySlug = toSignal(
+    this.route.paramMap.pipe(map((params) => params.get('slug') as string)),
+  );
   readonly products = toSignal(
     this.route.paramMap.pipe(
       map((params) => params.get('slug') as string),
