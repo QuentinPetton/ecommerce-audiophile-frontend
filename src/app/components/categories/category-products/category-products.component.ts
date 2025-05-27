@@ -4,10 +4,11 @@ import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute } from '@angular/router';
 import { map, switchMap } from 'rxjs';
 import { ProductDescriptionComponent } from '../../product-details/product-description/product-description.component';
+import { CategoriesComponent } from '../categories.component';
 
 @Component({
   selector: 'app-category-products',
-  imports: [ProductDescriptionComponent],
+  imports: [ProductDescriptionComponent, CategoriesComponent],
   template: `
     @for (product of products(); track $index) {
       <app-product-description
@@ -15,6 +16,7 @@ import { ProductDescriptionComponent } from '../../product-details/product-descr
         class="text-center"
       ></app-product-description>
     }
+    <app-categories></app-categories>
   `,
   styles: '',
 })
