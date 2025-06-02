@@ -10,7 +10,7 @@ import { AddToCartButtonComponent } from '../add-to-cart-button/add-to-cart-butt
   imports: [UpperCasePipe, SplitBeforeCategoryPipe, CurrencyPipe, AddToCartButtonComponent],
   template: `
     @if (product()) {
-      <section class="mx-8 pb-12 md:grid md:grid-cols-2 md:gap-12 lg:mx-24 lg:gap-16">
+      <section [class]="getDisplayStyle()">
         <picture>
           <source [attr.srcset]="productMainImage()?.desktop" media="(min-width: 1024px)" />
           <source [attr.srcset]="productMainImage()?.tablet" media="(min-width: 768px)" />
@@ -42,6 +42,7 @@ import { AddToCartButtonComponent } from '../add-to-cart-button/add-to-cart-butt
 })
 export class ProductDescriptionComponent {
   readonly productSignal = input.required<ProductItems>();
+  readonly displayStyle = input.required<'productPage' | 'categoryPage'>();
   readonly product = computed(() => this.productSignal());
   readonly productMainImage = computed(() => {
     const image = this.productSignal().productImages.find((img) => img.type === 'main');
@@ -54,4 +55,19 @@ export class ProductDescriptionComponent {
       desktop: image.imageDesktop.replace('./', ''),
     };
   });
+  //TODO: isoler productDescription button pour avoir un see more depuis catégories
+  //TODO: avoir un stylelayout quand productDecription component est utilisé dans d'autres composants spécifique
+
+  getProductPageStyle() {
+    return 'mx-8 pb-12 md:grid md:grid-cols-2 md:gap-12 lg:mx-24 lg:gap-16';
+  }
+  getCategoryPageStyle() {
+    return 'text-center md:grid md:grid-cols-1 md:justify-items-center lg:grid lg:grid-cols-2 lg:gap-16 lg:mx-24';
+  }
+  getDisplayStyle() {
+    if (this.displayStyle() === 'productPage') {
+      return this.getProductPageStyle();
+    }
+    return this.getCategoryPageStyle();
+  }
 }

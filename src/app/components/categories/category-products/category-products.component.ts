@@ -12,11 +12,13 @@ import { AboutComponent } from '../../home/about/about.component';
   selector: 'app-category-products',
   imports: [ProductDescriptionComponent, CategoriesComponent, AboutComponent, UpperCasePipe],
   template: `
-    <h1>{{ categorySlug() | uppercase }}</h1>
+    <h1 class="text-white p-6 bg-black text-center text-3xl pt-20 mb-16">
+      {{ categorySlug() | uppercase }}
+    </h1>
     @for (product of products(); track $index) {
       <app-product-description
+        [displayStyle]="'categoryPage'"
         [productSignal]="product"
-        class="text-center"
       ></app-product-description>
     }
     <app-categories></app-categories>
@@ -40,5 +42,4 @@ export class CategoryProductsComponent {
       ),
     ),
   );
-  //TODO: isoler productDescription button pour avoir un see more depuis catégories
 }
