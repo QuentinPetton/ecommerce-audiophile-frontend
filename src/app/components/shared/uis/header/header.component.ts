@@ -1,5 +1,5 @@
 import { Component, signal } from '@angular/core';
-import { CategoriesComponent } from '../../../home/categories/categories.component';
+import { CategoriesComponent } from '../../../categories/categories.component';
 import { BurgerMenuComponent } from './burgerMenu.component';
 import { NavbarDesktopComponent } from '../navbar/navbar-desktop/navbar-desktop.component';
 

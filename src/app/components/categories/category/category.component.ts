@@ -1,10 +1,11 @@
 import { Component, input } from '@angular/core';
-import type { Category } from '../../../../models/category';
+import type { Category } from '../../../models/category';
 import { UpperCasePipe } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-category',
-  imports: [UpperCasePipe],
+  imports: [UpperCasePipe, RouterLink],
   template: `
     <div
       class="bg-grey-light mx-8 relative flex flex-col items-center text-center mt-20 rounded-lg gap-4 font-manrope"
@@ -16,9 +17,12 @@ import { UpperCasePipe } from '@angular/common';
       />
       <h2 class="mt-20 text-md">{{ category()?.slug | uppercase }}</h2>
       <button class="flex items-center gap-3 mb-4  cursor-pointer hover:text-orange transition">
-        <span class="opacity-50 text-sm hover:opacity-100">
+        <a
+          [routerLink]="['/category', category()?.slug]"
+          class="opacity-50 text-sm hover:opacity-100"
+        >
           {{ 'Shop' | uppercase }}
-        </span>
+        </a>
         <img src="/assets/shared/desktop/icon-arrow-right.svg" alt="icon for shop button" />
       </button>
     </div>

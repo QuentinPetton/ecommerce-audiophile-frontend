@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { HeroComponent } from './hero/hero.component';
-import { CategoriesComponent } from './categories/categories.component';
+import { CategoriesComponent } from '../categories/categories.component';
 import { FeaturedProductsComponent } from './featured-products/featured-products.component';
 import { AboutComponent } from './about/about.component';
 
