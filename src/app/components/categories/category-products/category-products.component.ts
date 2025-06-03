@@ -1,5 +1,5 @@
 import { UpperCasePipe } from '@angular/common';
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject, input, signal } from '@angular/core';
 import { ProductService } from '../../../services/product.service';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute } from '@angular/router';
@@ -19,6 +19,7 @@ import { AboutComponent } from '../../home/about/about.component';
       <app-product-description
         [displayStyle]="'categoryPage'"
         [productSignal]="product"
+        [isReversedLayout]="$index % 2 === 0"
       ></app-product-description>
     }
     <app-categories></app-categories>
@@ -29,6 +30,7 @@ import { AboutComponent } from '../../home/about/about.component';
 export class CategoryProductsComponent {
   private readonly route = inject(ActivatedRoute);
   private readonly productService = inject(ProductService);
+
   readonly categorySlug = toSignal(
     this.route.paramMap.pipe(map((params) => params.get('slug') as string)),
   );
