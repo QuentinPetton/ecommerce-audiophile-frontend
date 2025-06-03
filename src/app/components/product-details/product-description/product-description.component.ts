@@ -26,7 +26,7 @@ import { AddToCartButtonComponent } from '../add-to-cart-button/add-to-cart-butt
           <source [attr.srcset]="productMainImage()?.desktop" media="(min-width: 1024px)" />
           <source [attr.srcset]="productMainImage()?.tablet" media="(min-width: 768px)" />
           <img
-            class="rounded-lg mb-6 lg:mb-0"
+            class="rounded-lg mb-6 md:w-1/3 md:mx-auto md:mb-0 lg:w-full lg:mb-0 "
             [src]="productMainImage()?.mobile"
             alt="Image of {{ product().slug }}"
           />
@@ -84,7 +84,7 @@ export class ProductDescriptionComponent {
     return 'mx-8 pb-12 md:grid md:grid-cols-2 md:gap-12 lg:mx-24 lg:gap-16';
   }
   getCategoryPageStyle() {
-    return 'mx-8 pb-12 text-center md:grid md:grid-cols-1 md:justify-items-center lg:grid lg:grid-cols-2 lg:gap-16 lg:mx-24 lg:text-left';
+    return 'mx-8 pb-12 text-center md:grid md:grid-cols-1 md:justify-items-center  lg:grid lg:grid-cols-2 lg:gap-16 lg:mx-24 lg:text-left';
   }
   getDisplayStyle() {
     if (this.displayStyle() === 'productPage') {
