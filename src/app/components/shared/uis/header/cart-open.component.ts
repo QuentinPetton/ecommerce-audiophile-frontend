@@ -1,3 +1,4 @@
+import { RouterLink } from '@angular/router';
 import { CartService } from './../../../../services/cart.service';
 import { Component, inject } from '@angular/core';
 import { UpperCasePipe } from '@angular/common';
@@ -5,7 +6,7 @@ import { CurrencyPipe } from '@angular/common';
 
 @Component({
   selector: 'app-cart-open',
-  imports: [UpperCasePipe, CurrencyPipe],
+  imports: [UpperCasePipe, CurrencyPipe, RouterLink],
   template: `
     <div
       class="fixed inset-0 z-50 flex justify-center items-start mt-20 px-4 md:justify-end lg:mr-10"
@@ -67,11 +68,14 @@ import { CurrencyPipe } from '@angular/common';
               getTotalPrice() | currency: 'USD' : 'symbol' : '1.0-0' : 'en'
             }}</span>
           </div>
-          <button
-            class="bg-orange text-white px-6 py-4 text-xs tracking-widest hover:bg-orange-light transition cursor-pointer w-full"
-          >
-            {{ 'Checkout' | uppercase }}
-          </button>
+
+          <a [routerLink]="['/checkout']">
+            <button
+              class="bg-orange text-white px-6 py-4 text-xs tracking-widest hover:bg-orange-light transition cursor-pointer w-full"
+            >
+              {{ 'Checkout' | uppercase }}
+            </button>
+          </a>
         }
       </div>
     </div>
