@@ -1,4 +1,4 @@
-import { Injectable, signal } from '@angular/core';
+import { computed, Injectable, signal } from '@angular/core';
 import type { CartItems } from '../models/cart-items';
 
 @Injectable({
@@ -68,9 +68,12 @@ export class CartService {
     this.toggleCart();
   }
 
-  getCartTotalPrice() {
-    return this.cartItems().reduce((total, item) => {
-      return total + item.price * item.quantity;
-    }, 0);
-  }
+  readonly getCartTotalPrice = computed(() => {
+    return this.cartItems().reduce((total, item) => total + item.price * item.quantity, 0);
+  });
+  readonly getShippingCost = computed(() => (this.cartItems().length > 0 ? 50 : 0));
+  readonly getVat = computed(() => this.getCartTotalPrice() * 0.2);
+  readonly getGrandTotal = computed(
+    () => this.getCartTotalPrice() + this.getShippingCost() + this.getVat(),
+  );
 }

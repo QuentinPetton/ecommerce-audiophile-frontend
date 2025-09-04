@@ -33,6 +33,19 @@ import { CurrencyPipe } from '@angular/common';
             <span class="text-lg font-bold">{{
               getTotalPrice() | currency: 'USD' : 'symbol' : '1.0-0' : 'en'
             }}</span>
+            <span class="text-sm text-black/50">{{ 'Shipping' | uppercase }}</span>
+            <span class="text-lg font-bold">
+              {{ getShippingCost() | currency: 'USD' : 'symbol' : '1.0-0' : 'en' }}
+            </span>
+            <span class="text-sm text-black/50">{{ 'VAT (included)' | uppercase }}</span>
+            <span class="text-lg font-bold">{{
+              getVat() | currency: 'USD' : 'symbol' : '1.0-0' : 'en'
+            }}</span>
+
+            <span class="text-sm text-black/50">{{ 'Grand Total' | uppercase }}</span>
+            <span class="text-lg font-bold"
+              >{{ getGrandTotal() | currency: 'USD' : 'symbol' : '1.0-0' : 'en' }}
+            </span>
           </div>
           <button
             class="w-full bg-orange text-white py-4 mt-6 rounded-lg hover:bg-orange/75 transition"
@@ -49,4 +62,7 @@ export class OrderSummaryComponent {
   private readonly cart = inject(CartService);
   readonly cartItems = this.cart.getCartItems();
   readonly getTotalPrice = this.cart.getCartTotalPrice;
+  readonly getShippingCost = this.cart.getShippingCost;
+  readonly getGrandTotal = this.cart.getGrandTotal;
+  readonly getVat = this.cart.getVat;
 }

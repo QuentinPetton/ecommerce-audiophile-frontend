@@ -37,10 +37,10 @@ import { OrderSummaryComponent } from './order-summary/order-summary.component';
         <section>
           <h2>{{ 'Shipping Info' | uppercase }}</h2>
           <div>
-            <label for="payement_method">Payement Method</label>
-            <input type="radio" id="e-money" name="payement_method" checked />
+            <label for="payment_method">Payment Method</label>
+            <input type="radio" id="e-money" name="payment_method" checked />
             <label for="e-money">e-Money</label>
-            <input type="radio" id="cash" name="payement_method" />
+            <input type="radio" id="cash" name="payment_method" />
             <label for="cash">Cash on Delivery</label>
             <p>
               The 'Cash on Delivery' option enables you to pay in cash when our delivery courier
@@ -68,6 +68,6 @@ export class CheckoutComponent {
     zip: new FormControl('', [Validators.required]),
     city: new FormControl('', [Validators.required]),
     country: new FormControl('', [Validators.required]),
-    payement_method: new FormControl('e-money', [Validators.required]),
+    payment_method: new FormControl('e-money', [Validators.required]),
   });
 }
