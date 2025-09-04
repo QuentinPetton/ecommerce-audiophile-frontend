@@ -1,10 +1,11 @@
 import { UpperCasePipe } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { OrderSummaryComponent } from './order-summary/order-summary.component';
 
 @Component({
   selector: 'app-checkout',
-  imports: [ReactiveFormsModule, UpperCasePipe],
+  imports: [ReactiveFormsModule, UpperCasePipe, OrderSummaryComponent],
   template: `
     <main>
       <h1>{{ 'Checkout' | uppercase }}</h1>
@@ -49,6 +50,7 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
           </div>
         </section>
       </form>
+      <app-order-summary></app-order-summary>
     </main>
   `,
   styles: '',
