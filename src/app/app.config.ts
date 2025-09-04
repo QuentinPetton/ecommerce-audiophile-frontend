@@ -6,6 +6,7 @@ import { MainLayoutComponent } from './components/shared/layout/main-layout/main
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { isProductExistGuard } from './guards/is-product-exist.guard';
 import { CategoryProductsComponent } from './components/categories/category-products/category-products.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
 
 export const routes: Routes = [
   {
@@ -25,6 +26,10 @@ export const routes: Routes = [
         path: 'category/:slug',
         component: CategoryProductsComponent,
         //todo : add isCategoryExistGuard
+      },
+      {
+        path: 'checkout',
+        component: CheckoutComponent,
       },
     ],
   },
