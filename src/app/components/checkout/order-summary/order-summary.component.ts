@@ -1,15 +1,21 @@
-import { Component } from '@angular/core';
+import { CartItems } from './../../../models/cart-items';
+import { Component, inject } from '@angular/core';
+import { UpperCasePipe } from '@angular/common';
+import { CartService } from '../../../services/cart.service';
 
 @Component({
   selector: 'app-order-summary',
-  imports: [],
+  imports: [UpperCasePipe],
   template: `
-    <p>
-      order-summary works!
-    </p>
+    <aside>
+      <h2 class="text-lg tracking-widest font-bold">{{ 'Summary' | uppercase }}</h2>
+    </aside>
+    <p>order-summary works!</p>
   `,
-  styles: ``
+  styles: ``,
 })
 export class OrderSummaryComponent {
-
+  private readonly cart = inject(CartService);
+  readonly CartItems = this.cart.getCartItems();
+  readonly getTotalPrice = this.cart.getCartTotalPrice;
 }
