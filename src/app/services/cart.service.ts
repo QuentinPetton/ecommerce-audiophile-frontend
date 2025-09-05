@@ -5,23 +5,20 @@ import type { CartItems } from '../models/cart-items';
   providedIn: 'root',
 })
 export class CartService {
-  private cartIsOpen = signal(false);
-  private cartItems = signal<CartItems[]>([]);
-  readonly isCartOpen = this.cartIsOpen.asReadonly();
+  private cartIsOpenSignal = signal(false);
+  private cartItemsSignal = signal<CartItems[]>([]);
+  readonly isCartOpen = this.cartIsOpenSignal.asReadonly();
+  readonly cartItems = this.cartItemsSignal.asReadonly();
 
   toggleCart() {
-    this.cartIsOpen.update((isOpen) => !isOpen);
-  }
-
-  getCartItems() {
-    return this.cartItems;
+    this.cartIsOpenSignal.update((isOpen) => !isOpen);
   }
 
   addToCart(product: CartItems) {
     //1) On vérifie si le produit existe
     //2) Si oui, on récupère le produit et on update la quantité
     //3) Sinon, ajout au tableau
-    this.cartItems.update((items) => {
+    this.cartItemsSignal.update((items) => {
       const existingItem = items.find((item) => item.id === product.id);
       if (existingItem) {
         return items.map((item) =>
@@ -37,7 +34,7 @@ export class CartService {
     });
   }
   addOneQuantityToCart(productId: number) {
-    this.cartItems.update((items) => {
+    this.cartItemsSignal.update((items) => {
       return items.map((item) =>
         item.id === productId
           ? {
@@ -50,7 +47,7 @@ export class CartService {
   }
 
   removeOneQuantityFromCart(productId: number) {
-    this.cartItems.update((items) => {
+    this.cartItemsSignal.update((items) => {
       return items
         .map((item) =>
           item.id === productId
@@ -64,7 +61,7 @@ export class CartService {
     });
   }
   removeAllItemsFromCart() {
-    this.cartItems.set([]);
+    this.cartItemsSignal.set([]);
     this.toggleCart();
   }
 

@@ -84,7 +84,7 @@ import { CurrencyPipe } from '@angular/common';
 })
 export class CartOpenComponent {
   readonly CartService = inject(CartService);
-  readonly cartItems = this.CartService.getCartItems();
+  readonly cartItems = this.CartService.cartItems;
   readonly removeOneQuantityFromCart = this.CartService.removeOneQuantityFromCart;
   readonly addOneQuantityToCart = this.CartService.addOneQuantityToCart;
   readonly removeAllItemsFromCart = this.CartService.removeAllItemsFromCart;

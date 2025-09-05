@@ -60,7 +60,7 @@ import { CurrencyPipe } from '@angular/common';
 })
 export class OrderSummaryComponent {
   private readonly cart = inject(CartService);
-  readonly cartItems = this.cart.getCartItems();
+  readonly cartItems = this.cart.cartItems;
   readonly getTotalPrice = this.cart.getCartTotalPrice;
   readonly getShippingCost = this.cart.getShippingCost;
   readonly getGrandTotal = this.cart.getGrandTotal;
