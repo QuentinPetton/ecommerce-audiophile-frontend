@@ -48,7 +48,7 @@ import { CurrencyPipe } from '@angular/common';
             </span>
           </div>
           <button
-            class="w-full bg-orange text-white py-4 mt-6 rounded-lg hover:bg-orange/75 transition"
+            class="w-full bg-orange text-white py-4 mt-6 rounded-lg hover:bg-orange/75 transition cursor-pointer"
           >
             {{ 'Continue' | uppercase }}
           </button>

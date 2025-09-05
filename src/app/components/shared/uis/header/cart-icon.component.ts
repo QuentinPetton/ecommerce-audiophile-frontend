@@ -15,7 +15,7 @@ import { CartService } from '../../../../services/cart.service';
 })
 export class CartIconComponent {
   readonly cartService = inject(CartService);
-  readonly cartItems = this.cartService.getCartItems();
+  readonly cartItems = this.cartService.cartItems;
   handleCartClick() {
     this.cartService.toggleCart();
   }

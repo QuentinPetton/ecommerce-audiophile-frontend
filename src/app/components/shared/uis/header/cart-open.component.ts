@@ -17,18 +17,22 @@ import { CurrencyPipe } from '@angular/common';
         @if (cartItems().length === 0) {
           <div class="flex justify-between">
             <p>Votre panier est vide</p>
-            <button (click)="toggleCart()" class="cursor-pointer text-red-700 px-6">x</button>
+            <button (click)="CartService.toggleCart()" class="cursor-pointer text-red-700 px-6">
+              x
+            </button>
           </div>
         } @else {
           <div class="flex justify-between pb-6 ">
             <h2>{{ 'Cart' | uppercase }} ({{ cartItems().length }})</h2>
             <button
-              (click)="removeAllItemsFromCart()"
+              (click)="CartService.removeAllItemsFromCart()"
               class="cursor-pointer underline text-black/50"
             >
               Remove all
             </button>
-            <button (click)="toggleCart()" class="cursor-pointer text-red-700 px-6">x</button>
+            <button (click)="CartService.toggleCart()" class="cursor-pointer text-red-700 px-6">
+              x
+            </button>
           </div>
           <div>
             @for (cartItems of cartItems(); track $index) {
@@ -46,14 +50,14 @@ import { CurrencyPipe } from '@angular/common';
                 </div>
                 <div class="bg-grey-light my-4 p-2 flex items-center justify-around ">
                   <button
-                    (click)="removeOneQuantityFromCart(cartItems.id)"
+                    (click)="CartService.removeOneQuantityFromCart(cartItems.id)"
                     class="cursor-pointer text-black/25"
                   >
                     -
                   </button>
                   <span>{{ cartItems.quantity }}</span>
                   <button
-                    (click)="addOneQuantityToCart(cartItems.id)"
+                    (click)="CartService.addOneQuantityToCart(cartItems.id)"
                     class="cursor-pointer text-black/25"
                   >
                     +
@@ -69,13 +73,13 @@ import { CurrencyPipe } from '@angular/common';
             }}</span>
           </div>
 
-          <a [routerLink]="['/checkout']">
-            <button
-              class="bg-orange text-white px-6 py-4 text-xs tracking-widest hover:bg-orange-light transition cursor-pointer w-full"
-            >
-              {{ 'Checkout' | uppercase }}
-            </button>
-          </a>
+          <button
+            [routerLink]="['/checkout']"
+            (click)="CartService.toggleCart()"
+            class="bg-orange text-white px-6 py-4 text-xs tracking-widest hover:bg-orange-light transition cursor-pointer w-full"
+          >
+            {{ 'Checkout' | uppercase }}
+          </button>
         }
       </div>
     </div>
@@ -85,9 +89,6 @@ import { CurrencyPipe } from '@angular/common';
 export class CartOpenComponent {
   readonly CartService = inject(CartService);
   readonly cartItems = this.CartService.cartItems;
-  readonly removeOneQuantityFromCart = this.CartService.removeOneQuantityFromCart;
-  readonly addOneQuantityToCart = this.CartService.addOneQuantityToCart;
-  readonly removeAllItemsFromCart = this.CartService.removeAllItemsFromCart;
-  readonly toggleCart = () => this.CartService.toggleCart();
+
   readonly getTotalPrice = this.CartService.getCartTotalPrice;
 }
